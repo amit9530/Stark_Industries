@@ -23,6 +23,29 @@ def player_menu():
 
 #--------------------------------------------------
 
+
+def parent_menu():
+    print("בחר אפשרות")
+    print('1- צפייה בציונים קודמים \n2- צפייה בילדים רשומים\n3- צפייה בדוח התחברות ')
+    print('4- צפייה בשאלות ממשחק אחרון \n5- התחל משחק לדוגמא \n6- יציאה')
+    choice=int(inpt())
+    if (choice==1):
+        watch_grades() #TODO: choose a child and watch grades function
+    if (choice==2):
+        players_report() #TODO: players report
+    if (choice==3):
+        login_report() #TODO: show last login time and how many times logged in
+    if (choice==4):
+        watch_last_game() #TODO: show last played game, errors and skipped questions
+    if (choice==5):
+        exampale_game() #TODO: make an exampale game without saving grades
+    if (choice==6):
+        log_off()  #TODO: log_off function
+    
+
+#--------------------------------------------------
+    
+    
 def professional_menu():
     print ('בחר אפשרות')
     print ('1- הפקת דוחות \n2- צפייה בציונים של הילדים \n3- בחירת ילד וצפייה בשאלות עליהן הוא דילג \n4-  אתחול נתונים של ילד')
@@ -56,7 +79,7 @@ def professional_menu():
          
 #--------------------------------------------------
     
-    
+ 
 def choose_category():
     print(':בחר קטגוריה למשחק')
     print('1- בית ספר')
