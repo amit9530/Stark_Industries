@@ -1,0 +1,13 @@
+Game instruction:
+
+To open the game you must be registered.
+The game will ask you if you are reegistered.
+If you are, enter 'y' to go to the login screen.
+If you are not, enter 'n' to go to registration screen.
+You will be asked to choose category: 1 - school' 2 - indoor/home, 3- public places
+After you chose a category, the game will begin.
+A quuestion will apear with 3 answers, 
+each answer will grant you diffrent points 0,1,2.
+You can also skip the current quistion.
+After you either chose your answers or skipped 5 questions, you will be graded accordingly.
+Your grade will be save in the system data base.
