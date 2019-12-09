@@ -1,4 +1,4 @@
-#-*- coding: utf-8 -*-
+
 """
 Created on Sun Dec  8 10:54:33 2019
 
@@ -90,8 +90,3 @@ elif welcome == "y" or welcome == "Y":
             break
         print("ID not exist in the system")
 
-    
-    
-    
-    
-    
