@@ -2,6 +2,10 @@ import pandas as pd
 #excel_file='DB.xlsx'
 #data = pd.read_excel(excel_file)
 
+def instructions():
+    file=open("instruction1.txt",'r')
+    print(file.read())
+
 
 def player_menu():
     print ('בחר אפשרות')
