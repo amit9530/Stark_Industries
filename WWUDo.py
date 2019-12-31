@@ -12,6 +12,33 @@ def Print_Last_Login(id):
             print("The player last login was at:",playerDB['Last_Login'][index])
         index+=1
 
+def Print_Last_Mistake(id):
+    playerDB = pd.read_excel('C:\\Users\\xxore\\Documents\\Project GitHub\\Player_db.xlsx')
+    question = pd.read_excel('C:\\Users\\xxore\\Documents\\Project GitHub\\Question_db_new.xlsx')
+    index = 0
+    QandA=[]
+    for kid in playerDB['ID']:
+        #QandA=[('Q1','A1'),('Q2','A2'),('Q3','A3'),('Q4','A4'),('Q5','A5')]
+        if int(kid) == int(id):
+            for n in range(1,6):
+                a='A'+str(n)
+                q='Q'+str(n)
+                QandA.append((playerDB[q][index],playerDB[a][index]))
+        index+=1
+    for index in range(0,len(QandA)):
+        i=0
+        for q in question['Question']: 
+            if str(q) == str(QandA[index][0]):
+                if not (question['Right Answer'][i] == QandA[index][1]):
+                    if QandA[index][1] == 's':
+                        print("Question:\n{0}\nwas skipped.\nThe correct answer is:\n{1}".format(QandA[index][0],question['Right Answer'][i]))
+                    else:
+                        print("The question:\n{0}\nis incorrect.\nYour answer:\n{1}\nThe correct answer is:\n{2}"
+                              .format(QandA[index][0],QandA[index][1],question['Right Answer'][i]))
+                    print()
+                break
+            i+=1
+    
 
 def instructions():
     file = open("instruction1.txt", 'r')
