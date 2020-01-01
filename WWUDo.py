@@ -1,9 +1,45 @@
-<<<<<<< HEAD
 import pandas as pd
+import numpy as np
+
+#-----------------------------------
+
+def Most_Mistakes():
+    questions_db=pd.read_excel('Question_db_new.xlsx')
+    max_mistakes=0
+    for mistake in questions_db['Mistakes']:
+        if mistake>max_mistakes:
+            max_mistakes=mistake
+    max_index=(questions_db.index[questions_db['Mistakes']==max_mistakes].tolist())[0]
+    print('The question with the most mistakes is {0}'.format(questions_db.loc[max_index]['Question']))
+    print('This question has been answered wrong {0} times.'.format(max_mistakes))
 
 
-# excel_file='DB.xlsx'
-# data = pd.read_excel(excel_file)
+def Delete_User():
+    id=int(input('Please enter the ID of the user to delete: '))
+    # search and delete from players data base
+    players=pd.read_excel('Player_db.xlsx')
+    for player_id in players['ID']:
+        if id==player_id:
+            player_index=(players.index[players['ID']==id].tolist())[0]
+            new_players=players.drop(player_index)
+            new_players.to_excel("Player_db.xlsx")
+            print('User deleted!')
+            return
+    # search and delete from users data base
+    users=pd.read_excel('Users_db.xlsx')
+    for user_id in users['ID']:
+        if id==user_id:
+            user_index=(users.index[users['ID']==id].tolist())[0]
+            new_users=users.drop(user_index)
+            new_users.to_excel("Users_db.xlsx")
+            print('User deleted!')
+            return
+    # if the id wasnt found in any data base
+    print('Error - ID not found')
+    
+
+#-----------------------------------
+
 
 def Print_Last_Login(id):
     playerDB = pd.read_excel('C:\\Users\\xxore\\Documents\\Project GitHub\\Player_db.xlsx')
@@ -129,8 +165,8 @@ def choose_category():
     print('3- מקום ציבורי')
     choice = input()
     game(choice)  # TODO: game function
-=======
-import pandas as pd
+
+#import pandas as pd
 
 
 # excel_file='DB.xlsx'
@@ -233,4 +269,4 @@ def choose_category():
     print('3- מקום ציבורי')
     choice = input()
     game(choice)  # TODO: game function
->>>>>>> 33550331640b805d54a6b2e010d19f8b502fbb98
+
