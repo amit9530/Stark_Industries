@@ -37,6 +37,24 @@ def Delete_User():
     # if the id wasnt found in any data base
     print('Error - ID not found')
     
+def Delete_Question():
+    category=input('Please choose a category to delete from (School, Home or Public Places): ')
+    questions=pd.read_excel('Question_db_new.xlsx')
+    # making an index list of questions in the category
+    q_list=questions.index[questions['Category']==category].tolist()
+    print('Please choose a question to delete:')
+    index=1
+    # printing questions in the category
+    for q_index in q_list:
+        print('{0}: {1}'.format(index, questions.loc[q_index]['Question']))
+        index+=1
+    q_to_delete=int(input())
+    print ('You chose to delete the question: {0}'.format(questions.loc[q_list[q_to_delete-1]]['Question']))
+    # delete question and update data base
+    new_questions=questions.drop(q_list[q_to_delete-1])
+    new_questions.to_excel("Question_db_new.xlsx")
+    print('Question deleted!')
+
 
 #-----------------------------------
 
