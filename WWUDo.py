@@ -38,7 +38,12 @@ def Delete_User():
     print('Error - ID not found')
     
 def Delete_Question():
-    category=input('Please choose a category to delete from (School, Home or Public Places): ')
+    while True:
+        category=input('Please choose a category to delete from (School, Home or Public Places): ')
+        if (category=='Home' or category=='School' or category=='Public Places'):
+            break;
+        else:
+            print('Invalid category!')
     questions=pd.read_excel('Question_db_new.xlsx')
     # making an index list of questions in the category
     q_list=questions.index[questions['Category']==category].tolist()
@@ -55,7 +60,22 @@ def Delete_Question():
     new_questions.to_excel("Question_db_new.xlsx")
     print('Question deleted!')
 
-
+def Add_Question():
+    while True:
+        category=input('Please choose category to add a question (School, Home or Public Places): ')
+        if (category=='Home' or category=='School' or category=='Public Places'):
+            break;
+        else:
+            print('Invalid category!')
+    ques=input('Please enter the question to add: ')
+    print('Please enter 3 possible answers: ')
+    right_answer=input('The right answer: ')
+    answer2=input('Answer 2: ')
+    answer3=input('Answer 3: ')
+    questions=pd.read_excel('Question_db_new.xlsx')
+    new_questions=questions.append({'Category':category, 'Question':ques,'Answer_A':right_answer,'Answer_B':answer2,'Answer_C':answer3,'Mistakes':0,'Right Answer':right_answer},ignore_index=True)
+    new_questions.to_excel("Question_db_new.xlsx")
+    
 #-----------------------------------
 
 
