@@ -75,6 +75,27 @@ def Add_Question():
     questions=pd.read_excel('Question_db_new.xlsx')
     new_questions=questions.append({'Category':category, 'Question':ques,'Answer_A':right_answer,'Answer_B':answer2,'Answer_C':answer3,'Mistakes':0,'Right Answer':right_answer},ignore_index=True)
     new_questions.to_excel("Question_db_new.xlsx")
+    print('Question added!')
+    
+def Reset_Player():
+    id=int(input('Please enter ID of the child to reset data: '))
+    players=pd.read_excel('Player_db.xlsx')
+    if not(id in players.ID.values):
+        print('ID not found')
+        return
+    # reset data in players data base
+    index=players.index[players['ID']==id].tolist()[0]
+    players.at[index, 'Login_count']=0
+    players.at[index, ('Last_Login','Q1','A1','Q2','A2','Q3','A3','Q4','A4','Q5','A5','Last grade')]="NaN"
+    players.to_excel('Player_db.xlsx')
+    id_db='{0}.xlsx'.format(id)
+    # create an empty data frame and overrite player's data base
+    empty_db=pd.DataFrame(columns=['Date','Grade'])
+    empty_db.to_excel(id_db)
+    print ('Players data was Reset')
+    
+    
+Reset_Player()
     
 #-----------------------------------
 
