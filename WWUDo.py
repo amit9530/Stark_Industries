@@ -18,7 +18,22 @@ Questions_db=pd.read_excel('Questions_db_new.xlsx')
 kid_id=123456789
 parent_id=999
 
-
+def View_Skip(kid_id): #Get kid id and print the question from last game if skip from "User_db"
+    suffix=".xlsx"
+    file_name=str(kid_id)
+    User=pd.read_excel(file_name+suffix)
+    Row_List=[]
+    for index, rows in User.iterrows():
+        my_list = [rows.Q1, rows.A1,rows.Q2, rows.A2,rows.Q3, rows.A3,rows.Q4, rows.A4,rows.Q5, rows.A5]
+    if "s" not in my_list:
+       print("No questions were skipped")
+    else:
+        i=0
+        while i < len(my_list):
+            if my_list[i]=="s":
+                print(my_list[i-1])
+            i=i+1
+    return
 
 
 
