@@ -47,6 +47,11 @@ def View_Kid(parent_id): #Get parent id and print all the kids that belong to th
     print(kids['ID'])
     return
 
+def Print_Login_Count(kid_id): #Get kid id and print login count from "Player_db"
+    kid=Player_db.loc[Player_db.ID==kid_id]
+    print(kid['Login_count'])
+    return
+
 
 def Most_Mistakes():
     questions_db=pd.read_excel('Question_db_new.xlsx')
