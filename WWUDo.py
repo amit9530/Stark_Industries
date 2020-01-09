@@ -305,8 +305,6 @@ def professional_menu():
 
 # --------------------------------------------------
 
-
-<<<<<<< HEAD
 def choose_category():
     print(':בחר קטגוריה למשחק')
     print('1- בית ספר')
@@ -321,6 +319,3 @@ def  Print_Grades(id):
     print('Printing grades: ')
     for index, row in grades.iterrows():
         print('Grade: {0}, date: {1}'.format(row['Grade'],row['Date']))
-=======
-
->>>>>>> 4823af50db4791a92b86ac46bc06f7432096d8c4
