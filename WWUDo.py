@@ -66,7 +66,8 @@ def Example_Game(): #play game for example to Understand how to play the game
       x=x+1
     return
 
-
+#-----------------------------------
+    
 def Most_Mistakes():
     questions_db=pd.read_excel('Question_db_new.xlsx')
     max_mistakes=0
@@ -158,9 +159,7 @@ def Reset_Player():
     empty_db.to_excel(id_db)
     print ('Players data was Reset')
     
-    
-Reset_Player()
-    
+        
 #-----------------------------------
 
 
@@ -206,32 +205,47 @@ def instructions():
     file = open("instruction1.txt", 'r')
     print(file.read())
 
+def choose_category():
+    print('Choose game category')
+    print('1- School')
+    print('2- Home')
+    print('3- Public places')
+    choice = input()
+    game(choice)  # TODO: game function - AMIT
+
 
 def player_menu():
-    print('בחר אפשרות')
-    print('1- בחירת קטגוריה והתחלת משחק \n2- צפייה בהוראות המשחק \n3- צפייה בציונים קודמים \n4- יציאה מהמערכת')
+    print("Choose an option")
+    print('1- Play game \n2- Show game instructions \n3- Show grades')
+    print('4- Show last played game \n5- Show last game skipped question \n6- Show the latest grade')
+    print('7- Exit')
+
     choice = int(input())
     if (choice == 1):
         choose_category()
     if (choice == 2):
-        instructions()  # TODO: add the instruction function to file
+        instructions()
     if (choice == 3):
-        watch_grades()  # TODO: watch_grades function
+        Print_Grades()  # TODO: Print_Grades - ROTEM
     if (choice == 4):
-        log_off()  # TODO: log_off function
-
-
+        Print_Last_Game()  # TODO:  Print_Last_Game - AMIT
+    if (choice == 5):
+        View_Skip()
+    if (choice == 6):
+        Print_Last_Grade()  # TODO: Print_Last_Grade
+    if (choice == 7):
+        Exit()  # TODO: Exit
 # --------------------------------------------------
 
 
 def parent_menu(id):
-    print("בחר אפשרות")
+    print("Choose an option")
     print('1- Add kid \n2- View kid\n3- Show last grade ')
     print("4- Show the kid's login count \n5- Show last game skipped question \n6- Play example game")
     print("7- Show kid's last game \n8- Show the kid's last game mistake \n9- Show the kid's last loggin date")
     print('10- Exit')
 
-    choice = int(inpt())
+    choice = int(input())
     if (choice == 1):
         Add_Kid(id)
     if (choice == 2):
@@ -292,6 +306,7 @@ def professional_menu():
 # --------------------------------------------------
 
 
+<<<<<<< HEAD
 def choose_category():
     print(':בחר קטגוריה למשחק')
     print('1- בית ספר')
@@ -299,3 +314,13 @@ def choose_category():
     print('3- מקום ציבורי')
     choice = input()
     game(choice)  # TODO: game function
+
+def  Print_Grades(id):
+    player_db='{0}.xlsx'.format(id)
+    grades=pd.read_excel(player_db)
+    print('Printing grades: ')
+    for index, row in grades.iterrows():
+        print('Grade: {0}, date: {1}'.format(row['Grade'],row['Date']))
+=======
+
+>>>>>>> 4823af50db4791a92b86ac46bc06f7432096d8c4
