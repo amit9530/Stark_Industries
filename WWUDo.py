@@ -167,7 +167,8 @@ Reset_Player()
 #-----------------------------------
 
 
-def Print_Last_Login(id):
+def login_report(id):
+    """Print the player last login times"""
     playerDB = pd.read_excel('C:\\Users\\xxore\\Documents\\Project GitHub\\Player_db.xlsx')
     index = 0 
     for kid in playerDB['ID']:
@@ -176,6 +177,7 @@ def Print_Last_Login(id):
         index+=1
 
 def Print_Last_Mistake(id):
+    """Print the last game mistakes"""
     playerDB = pd.read_excel('C:\\Users\\xxore\\Documents\\Project GitHub\\Player_db.xlsx')
     question = pd.read_excel('C:\\Users\\xxore\\Documents\\Project GitHub\\Question_db_new.xlsx')
     index = 0
@@ -225,7 +227,7 @@ def player_menu():
 # --------------------------------------------------
 
 
-def parent_menu():
+def parent_menu(id):
     print("בחר אפשרות")
     print('1- צפייה בציונים קודמים \n2- צפייה בילדים רשומים\n3- צפייה בדוח התחברות ')
     print('4- צפייה בשאלות ממשחק אחרון \n5- התחל משחק לדוגמא \n6- יציאה')
@@ -235,7 +237,7 @@ def parent_menu():
     if (choice == 2):
         players_report()  # TODO: players report
     if (choice == 3):
-        login_report()  # TODO: show last login time and how many times logged in
+        login_report(id)
     if (choice == 4):
         watch_last_game()  # TODO: show last played game, errors and skipped questions
     if (choice == 5):
