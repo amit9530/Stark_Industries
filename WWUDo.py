@@ -67,8 +67,16 @@ def Example_Game(): #play game for example to Understand how to play the game
     return
 
 #-----------------------------------
-    
+def  Print_Grades(id):
+    ''' function gets id of player and prints all grades from the player's data base'''
+    player_db='{0}.xlsx'.format(id)
+    grades=pd.read_excel(player_db)
+    print('Printing grades: ')
+    for index, row in grades.iterrows():
+        print('Grade: {0}, date: {1}'.format(row['Grade'],row['Date']))
+        
 def Most_Mistakes():
+    ''' function searches in data base for the question with most mistakes and prints it'''
     questions_db=pd.read_excel('Question_db_new.xlsx')
     max_mistakes=0
     for mistake in questions_db['Mistakes']:
@@ -80,6 +88,7 @@ def Most_Mistakes():
 
 
 def Delete_User():
+    ''' function deletes user from player db and users db'''
     id=int(input('Please enter the ID of the user to delete: '))
     # search and delete from players data base
     players=pd.read_excel('Player_db.xlsx')
@@ -88,8 +97,6 @@ def Delete_User():
             player_index=(players.index[players['ID']==id].tolist())[0]
             new_players=players.drop(player_index)
             new_players.to_excel("Player_db.xlsx")
-            print('User deleted!')
-            return
     # search and delete from users data base
     users=pd.read_excel('Users_db.xlsx')
     for user_id in users['ID']:
@@ -103,6 +110,7 @@ def Delete_User():
     print('Error - ID not found')
     
 def Delete_Question():
+    ''' function print all questions in the relevant category , and deletes the question the user chose'''
     while True:
         category=input('Please choose a category to delete from (School, Home or Public Places): ')
         if (category=='Home' or category=='School' or category=='Public Places'):
@@ -126,6 +134,7 @@ def Delete_Question():
     print('Question deleted!')
 
 def Add_Question():
+    ''' function adds question according to the category the user chose'''
     while True:
         category=input('Please choose category to add a question (School, Home or Public Places): ')
         if (category=='Home' or category=='School' or category=='Public Places'):
@@ -143,6 +152,7 @@ def Add_Question():
     print('Question added!')
     
 def Reset_Player():
+    ''' function deletes player's grades and last game data'''
     id=int(input('Please enter ID of the child to reset data: '))
     players=pd.read_excel('Player_db.xlsx')
     if not(id in players.ID.values):
@@ -313,9 +323,3 @@ def choose_category():
     choice = input()
     game(choice)  # TODO: game function
 
-def  Print_Grades(id):
-    player_db='{0}.xlsx'.format(id)
-    grades=pd.read_excel(player_db)
-    print('Printing grades: ')
-    for index, row in grades.iterrows():
-        print('Grade: {0}, date: {1}'.format(row['Grade'],row['Date']))
