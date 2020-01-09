@@ -1,6 +1,4 @@
 import pandas as pd
-import numpy as np
-import pandas as pd
 import xlsxwriter
 import numpy as np
 import functools
@@ -9,16 +7,9 @@ import xlrd
 #-----------------------------------
 
 #Elior Function
-#For Testing
-Users_db=pd.read_excel('Users_db.xlsx')
-User_db=pd.read_excel('123456789.xlsx')
-Player_db=pd.read_excel('Player_db.xlsx')
-Questions_db=pd.read_excel('Questions_db_new.xlsx')
 
-kid_id=123456789
-parent_id=999
-
-def View_Skip(kid_id): #Get kid id and print the question from last game if skip from "User_db"
+def View_Skip(): #Get kid id and print the question from last game if skip from "User_db"
+    kid_id=input("Please enter kid Id")
     suffix=".xlsx"
     file_name=str(kid_id)
     User=pd.read_excel(file_name+suffix)
@@ -35,19 +26,25 @@ def View_Skip(kid_id): #Get kid id and print the question from last game if skip
             i=i+1
     return
 
-def Add_Kid(kid_id,parent_id): #Get kid id and write the parent id in "Parent" in "Player_db"
+def Add_Kid(parent_id): #Get kid and parent id and write the parent id in "Parent" in "Player_db"
+    Player_db = pd.read_excel('Player_db.xlsx')
+    kid_id=input("Please enter kid id")
     Player_db.loc[Player_db.ID == kid_id, 'Parent'] = parent_id
     writer = pd.ExcelWriter('Player_db.xlsx', engine='xlsxwriter')
     Player_db.to_excel(writer)
     writer.save()
     return
 
-def View_Kid(parent_id): #Get parent id and print all the kids that belong to the parent id from "Player_db"
+def View_Kid(): #Get parent id and print all the kids that belong to the parent id from "Player_db"
+    Player_db = pd.read_excel('Player_db.xlsx')
+    parent_id=input("Please enter kid id")
     kids=Player_db.loc[Player_db.Parent==parent_id]
     print(kids['ID'])
     return
 
-def Print_Login_Count(kid_id): #Get kid id and print login count from "Player_db"
+def Print_Login_Count(): #Get kid id and print login count from "Player_db"
+    Player_db = pd.read_excel('Player_db.xlsx')
+    kid_id=input("Please enter kid id")
     kid=Player_db.loc[Player_db.ID==kid_id]
     print(kid['Login_count'])
     return
