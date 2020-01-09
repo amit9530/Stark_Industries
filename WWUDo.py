@@ -210,6 +210,15 @@ def Print_Last_Mistake(id):
                 break
             i+=1
 
+def Print_Last_Grade(id):
+    playerDB = pd.read_excel('Player_db.xlsx')
+    index = 0
+    for kid in playerDB['ID']:
+        if int(kid)==int(id):
+            print(playerDB['Last grade'][index])
+        index += 1
+
+
 def View_All(user_type):
     """View all the user type"""
     #Need to change to the right file path
