@@ -52,6 +52,23 @@ def Print_Login_Count(kid_id): #Get kid id and print login count from "Player_db
     print(kid['Login_count'])
     return
 
+def Example_Game(): #play game for example to Understand how to play the game
+    x=1
+    print("Example Game\n Choose answer 1|2|3:")
+    while x<6:
+      print("Quetion:",x)
+      print("Answer 1")
+      print("Answer 2")
+      print("Answer 3")
+      user_input = input("Enter answer:")
+      if user_input=='1' or user_input=='2' or user_input=='3':
+          print("You choose answer : ", user_input)
+      else:
+          print("*** Worng  answer! ***\n*** Choose Only  1 | 2 | 3 ***")
+          x = x - 1
+      x=x+1
+    return
+
 
 def Most_Mistakes():
     questions_db=pd.read_excel('Question_db_new.xlsx')
