@@ -42,6 +42,10 @@ def Add_Kid(kid_id,parent_id): #Get kid id and write the parent id in "Parent" i
     writer.save()
     return
 
+def View_Kid(parent_id): #Get parent id and print all the kids that belong to the parent id from "Player_db"
+    kids=Player_db.loc[Player_db.Parent==parent_id]
+    print(kids['ID'])
+    return
 
 
 def Most_Mistakes():
