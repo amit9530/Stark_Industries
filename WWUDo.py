@@ -35,7 +35,12 @@ def View_Skip(kid_id): #Get kid id and print the question from last game if skip
             i=i+1
     return
 
-
+def Add_Kid(kid_id,parent_id): #Get kid id and write the parent id in "Parent" in "Player_db"
+    Player_db.loc[Player_db.ID == kid_id, 'Parent'] = parent_id
+    writer = pd.ExcelWriter('Player_db.xlsx', engine='xlsxwriter')
+    Player_db.to_excel(writer)
+    writer.save()
+    return
 
 
 
