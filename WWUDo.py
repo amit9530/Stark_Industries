@@ -8,6 +8,22 @@ import xlrd
 
 #-----------------------------------
 
+#Elior Function
+#For Testing
+Users_db=pd.read_excel('Users_db.xlsx')
+User_db=pd.read_excel('123456789.xlsx')
+Player_db=pd.read_excel('Player_db.xlsx')
+Questions_db=pd.read_excel('Questions_db_new.xlsx')
+
+kid_id=123456789
+parent_id=999
+
+
+
+
+
+
+
 def Most_Mistakes():
     questions_db=pd.read_excel('Question_db_new.xlsx')
     max_mistakes=0
