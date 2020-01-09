@@ -226,22 +226,32 @@ def player_menu():
 
 def parent_menu(id):
     print("בחר אפשרות")
-    print('1- צפייה בציונים קודמים \n2- צפייה בילדים רשומים\n3- צפייה בדוח התחברות ')
-    print('4- צפייה בשאלות ממשחק אחרון \n5- התחל משחק לדוגמא \n6- יציאה')
+    print('1- Add kid \n2- View kid\n3- Show last grade ')
+    print("4- Show the kid's login count \n5- Show last game skipped question \n6- Play example game")
+    print("7- Show kid's last game \n8- Show the kid's last game mistake \n9- Show the kid's last loggin date")
+    print('10- Exit')
+
     choice = int(inpt())
     if (choice == 1):
-        watch_grades()  # TODO: choose a child and watch grades function
+        Add_Kid(id)
     if (choice == 2):
-        players_report()  # TODO: players report
+        View_Kid()
     if (choice == 3):
-        login_report(id)
+        Print_Grades()  # TODO: Print Grades - ROTEM
     if (choice == 4):
-        watch_last_game()  # TODO: show last played game, errors and skipped questions
+        Print_Login_Count()
     if (choice == 5):
-        exampale_game()  # TODO: make an exampale game without saving grades
+        View_Skip()
     if (choice == 6):
-        log_off()  # TODO: log_off function
-
+        Example_Game()
+    if (choice == 7):
+        Print_Last_Game()  # TODO: Print_Last_Game - Amit
+    if (choice == 8):
+        Print_Last_Mistake()
+    if (choice == 9):
+        login_report()
+    if (choice == 10):
+        Exit()  # TODO: Exit
 
 # --------------------------------------------------
 
