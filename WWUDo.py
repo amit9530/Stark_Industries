@@ -272,38 +272,37 @@ def parent_menu(id):
 
 
 def professional_menu():
-    print('בחר אפשרות')
-    print(
-        '1- הפקת דוחות \n2- צפייה בציונים של הילדים \n3- בחירת ילד וצפייה בשאלות עליהן הוא דילג \n4-  אתחול נתונים של ילד')
-    print(
-        '5- הוספת שאלה למאגר \n6- מחיקת שאלה מהמאגר \n7- צפייה בשאלה בה טעו הכי הרבה ילדים \n8- מחיקת משתמש \n 9- יציאה מהמערכת')
+    print('Please choose an option: ')
+    print('1- Reports/n2- Watch childs grades/n3- Watch childs last games skipped questions/n4- Reset players data/n5- Add a question/n6- Delete a question')
+    print('7- Watch the most mistaken question/n8- Delete a user/n9- Exit')
     choice = int(input())
     if (choice == 1):
-        print('1- הפקת דו"ח אודות הורים המשתמשים במערכת \n2-הפקת דוח ילדים המשתמשים במערכת')
+        print ('1- Players report/n2- Parent report')
         report = int(input())
         if (report == 1):
-            parent_report()  # TODO: parent report function
+           View_All(1)  # TODO: oren
         elif (report == 2):
-            players_report()  # TODO: players report
+            View_All(2)  # TODO: oren
     if (choice == 2):
-        watch_grades()  # TODO: choose a child and watch grades function
+        id=input('Please enter childs ID')
+        Print_Grades(id)  # TODO: rotem
     if (choice == 3):
-        watch_skipped()  # TODO: choose a child and watch skipped questions function
+        id=input('Please enter childs ID')
+        View_Skip(id)  
     if (choice == 4):
-        reset_playerdata()  # TODO: choose a child and reset data
+        Reset_Player()
     if (choice == 5):
-        add_question()  # TODO:
+        Add_Question()
     if (choice == 6):
-        delete_question()  # TODO:
+        Delete_Question()
     if (choice == 7):
-        most_wrong()  # TODO: function that shows the question most players answered wrong and change name of function
+        Delete_Question()
     if (choice == 8):
-        remove_user()  # TODO:
+        Delete_User()
     if (choice == 9):
         log_off()  # TODO: log_off function
 
 
-# professional_menu()
 
 # --------------------------------------------------
 
