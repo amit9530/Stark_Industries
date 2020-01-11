@@ -3,13 +3,44 @@ import xlsxwriter
 import numpy as np
 import functools
 import xlrd
+import unittest
 
 #-----------------------------------
 
 #Elior Function
 
+class Unit_Test (unittest.TestCase):
+
+    def test_View_Skip(self):
+        self.assertEqual(View_Skip(),1)
+
+    def test_Add_Kid(self):
+        self.assertEqual(Add_Kid(111111111),1)
+
+    def test_Print_Login_Count(self):
+        self.assertEqual(Print_Login_Count(),1)
+
+    def test_Example_Game(self):
+        self.assertEqual(Example_Game(),1)
+
+    def test_Most_Mistakes(self):
+        self.assertEqual(Most_Mistakes(),1)
+
+    def test_Delete_User(self):
+        self.assertEqual(Delete_User(),1)
+
+    def test_Delete_Question(self):
+        self.assertEqual(Delete_Question(),1)
+
+    def test_Add_Question(self):
+        self.assertEqual(Add_Question(),1)
+
+    def test_instructions(self):
+        self.assertEqual(instructions(),1)
+
+
 def View_Skip(): #Get kid id and print the question from last game if skip from "User_db"
-    kid_id=input("Please enter kid Id")
+    kid_id=input("Please enter kid id")
     suffix=".xlsx"
     file_name=str(kid_id)
     User=pd.read_excel(file_name+suffix)
@@ -33,21 +64,21 @@ def Add_Kid(parent_id): #Get kid and parent id and write the parent id in "Paren
     writer = pd.ExcelWriter('Player_db.xlsx', engine='xlsxwriter')
     Player_db.to_excel(writer)
     writer.save()
-    return
+    return 1
 
 def View_Kid(): #Get parent id and print all the kids that belong to the parent id from "Player_db"
     Player_db = pd.read_excel('Player_db.xlsx')
     parent_id=input("Please enter kid id")
     kids=Player_db.loc[Player_db.Parent==parent_id]
     print(kids['ID'])
-    return
+    return 1
 
 def Print_Login_Count(): #Get kid id and print login count from "Player_db"
     Player_db = pd.read_excel('Player_db.xlsx')
     kid_id=input("Please enter kid id")
     kid=Player_db.loc[Player_db.ID==kid_id]
     print(kid['Login_count'])
-    return
+    return 1
 
 def Example_Game(): #play game for example to Understand how to play the game
     x=1
@@ -64,7 +95,7 @@ def Example_Game(): #play game for example to Understand how to play the game
           print("*** Worng  answer! ***\n*** Choose Only  1 | 2 | 3 ***")
           x = x - 1
       x=x+1
-    return
+    return 1
 
 
 def Most_Mistakes():
@@ -76,6 +107,8 @@ def Most_Mistakes():
     max_index=(questions_db.index[questions_db['Mistakes']==max_mistakes].tolist())[0]
     print('The question with the most mistakes is {0}'.format(questions_db.loc[max_index]['Question']))
     print('This question has been answered wrong {0} times.'.format(max_mistakes))
+    return 1
+
 
 
 def Delete_User():
@@ -100,6 +133,8 @@ def Delete_User():
             return
     # if the id wasnt found in any data base
     print('Error - ID not found')
+    return 1
+
     
 def Delete_Question():
     while True:
@@ -123,6 +158,8 @@ def Delete_Question():
     new_questions=questions.drop(q_list[q_to_delete-1])
     new_questions.to_excel("Question_db_new.xlsx")
     print('Question deleted!')
+    return 1
+
 
 def Add_Question():
     while True:
@@ -140,6 +177,8 @@ def Add_Question():
     new_questions=questions.append({'Category':category, 'Question':ques,'Answer_A':right_answer,'Answer_B':answer2,'Answer_C':answer3,'Mistakes':0,'Right Answer':right_answer},ignore_index=True)
     new_questions.to_excel("Question_db_new.xlsx")
     print('Question added!')
+    return 1
+
     
 def Reset_Player():
     id=int(input('Please enter ID of the child to reset data: '))
@@ -157,6 +196,8 @@ def Reset_Player():
     empty_db=pd.DataFrame(columns=['Date','Grade'])
     empty_db.to_excel(id_db)
     print ('Players data was Reset')
+    return 1
+
     
     
 Reset_Player()
@@ -205,6 +246,7 @@ def Print_Last_Mistake(id):
 def instructions():
     file = open("instruction1.txt", 'r')
     print(file.read())
+    return 1
 
 def choose_category():
     print('Choose game category')
