@@ -97,8 +97,17 @@ def Example_Game(): #play game for example to Understand how to play the game
       x=x+1
     return 1
 
-
+#-----------------------------------
+def  Print_Grades(id):
+    ''' function gets id of player and prints all grades from the player's data base'''
+    player_db='{0}.xlsx'.format(id)
+    grades=pd.read_excel(player_db)
+    print('Printing grades: ')
+    for index, row in grades.iterrows():
+        print('Grade: {0}, date: {1}'.format(row['Grade'],row['Date']))
+        
 def Most_Mistakes():
+    ''' function searches in data base for the question with most mistakes and prints it'''
     questions_db=pd.read_excel('Question_db_new.xlsx')
     max_mistakes=0
     for mistake in questions_db['Mistakes']:
@@ -112,6 +121,7 @@ def Most_Mistakes():
 
 
 def Delete_User():
+    ''' function deletes user from player db and users db'''
     id=int(input('Please enter the ID of the user to delete: '))
     # search and delete from players data base
     players=pd.read_excel('Player_db.xlsx')
@@ -120,8 +130,6 @@ def Delete_User():
             player_index=(players.index[players['ID']==id].tolist())[0]
             new_players=players.drop(player_index)
             new_players.to_excel("Player_db.xlsx")
-            print('User deleted!')
-            return
     # search and delete from users data base
     users=pd.read_excel('Users_db.xlsx')
     for user_id in users['ID']:
@@ -137,6 +145,7 @@ def Delete_User():
 
     
 def Delete_Question():
+    ''' function print all questions in the relevant category , and deletes the question the user chose'''
     while True:
         category=input('Please choose a category to delete from (School, Home or Public Places): ')
         if (category=='Home' or category=='School' or category=='Public Places'):
@@ -162,6 +171,7 @@ def Delete_Question():
 
 
 def Add_Question():
+    ''' function adds question according to the category the user chose'''
     while True:
         category=input('Please choose category to add a question (School, Home or Public Places): ')
         if (category=='Home' or category=='School' or category=='Public Places'):
@@ -181,6 +191,7 @@ def Add_Question():
 
     
 def Reset_Player():
+    ''' function deletes player's grades and last game data'''
     id=int(input('Please enter ID of the child to reset data: '))
     players=pd.read_excel('Player_db.xlsx')
     if not(id in players.ID.values):
@@ -199,9 +210,7 @@ def Reset_Player():
     return 1
 
     
-    
-Reset_Player()
-    
+        
 #-----------------------------------
 
 
@@ -241,7 +250,26 @@ def Print_Last_Mistake(id):
                     print()
                 break
             i+=1
-    
+
+def Print_Last_Grade(id):
+    playerDB = pd.read_excel('Player_db.xlsx')
+    index = 0
+    for kid in playerDB['ID']:
+        if int(kid)==int(id):
+            print(playerDB['Last grade'][index])
+        index += 1
+
+
+def View_All(user_type):
+    """View all the user type"""
+    #Need to change to the right file path
+    UsersDB = pd.read_excel('C:\\Users\\xxore\\Documents\\Project\\Users_db.xlsx')
+    index = 0
+    for user in UsersDB['ID']:
+        types = UsersDB['User type'][index]
+        if (types == user_type):
+            print(user)
+        index = index + 1
 
 def instructions():
     file = open("instruction1.txt", 'r')
@@ -257,8 +285,8 @@ def choose_category():
     game(choice)  # TODO: game function - AMIT
 
 
-def player_menu():
-    print("Choose an option")
+def player_menu(id):
+    print("Choose an option: ")
     print('1- Play game \n2- Show game instructions \n3- Show grades')
     print('4- Show last played game \n5- Show last game skipped question \n6- Show the latest grade')
     print('7- Exit')
@@ -269,7 +297,7 @@ def player_menu():
     if (choice == 2):
         instructions()
     if (choice == 3):
-        Print_Grades()  # TODO: Print_Grades - ROTEM
+        Print_Grades(id)
     if (choice == 4):
         Print_Last_Game()  # TODO:  Print_Last_Game - AMIT
     if (choice == 5):
@@ -282,7 +310,7 @@ def player_menu():
 
 
 def parent_menu(id):
-    print("Choose an option")
+    print("Choose an option: ")
     print('1- Add kid \n2- View kid\n3- Show last grade ')
     print("4- Show the kid's login count \n5- Show last game skipped question \n6- Play example game")
     print("7- Show kid's last game \n8- Show the kid's last game mistake \n9- Show the kid's last loggin date")
@@ -294,7 +322,8 @@ def parent_menu(id):
     if (choice == 2):
         View_Kid()
     if (choice == 3):
-        Print_Grades()  # TODO: Print Grades - ROTEM
+        id=int(input('Please enter child ID'))
+        Print_Grades(id)
     if (choice == 4):
         Print_Login_Count()
     if (choice == 5):
@@ -313,8 +342,8 @@ def parent_menu(id):
 # --------------------------------------------------
 
 
-def professional_menu():
-    print('Please choose an option: ')
+def professional_menu(id):
+    print('Choose an option: ')
     print('1- Reports/n2- Watch childs grades/n3- Watch childs last games skipped questions/n4- Reset players data/n5- Add a question/n6- Delete a question')
     print('7- Watch the most mistaken question/n8- Delete a user/n9- Exit')
     choice = int(input())
@@ -327,7 +356,7 @@ def professional_menu():
             View_All(2)  # TODO: oren
     if (choice == 2):
         id=input('Please enter childs ID')
-        Print_Grades(id)  # TODO: rotem
+        Print_Grades(id)
     if (choice == 3):
         id=input('Please enter childs ID')
         View_Skip(id)  
@@ -347,6 +376,3 @@ def professional_menu():
 
 
 # --------------------------------------------------
-
-
-
