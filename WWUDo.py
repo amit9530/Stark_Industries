@@ -18,7 +18,7 @@ class Unit_Test(unittest.TestCase):
         self.assertEqual(View_Skip(), 1)
 
     def test_Add_Kid(self):
-        self.assertEqual(Add_Kid(987654321), 1)
+        self.assertEqual(Add_Kid(111111111), 1)
 
     def test_Print_Login_Count(self):
         self.assertEqual(Print_Login_Count(), 1)
@@ -42,14 +42,13 @@ class Unit_Test(unittest.TestCase):
         self.assertEqual(instructions(), 1)
 
 
-
-
 def View_Skip():  # Get kid id and print the question from last game if skip from "User_db"
-    kid_id = int(input("Please enter kid id"))
-
-    Player_db = pd.read_excel('Player_db.xlsx')
-    kid=Player_db.loc[Player_db.ID==kid_id]
-    for index, rows in kid.iterrows():
+    kid_id = input("Please enter kid id")
+    suffix = ".xlsx"
+    file_name = str(kid_id)
+    User = pd.read_excel(file_name + suffix)
+    Row_List = []
+    for index, rows in User.iterrows():
         my_list = [rows.Q1, rows.A1, rows.Q2, rows.A2, rows.Q3, rows.A3, rows.Q4, rows.A4, rows.Q5, rows.A5]
     if "s" not in my_list:
         print("No questions were skipped")
@@ -59,12 +58,12 @@ def View_Skip():  # Get kid id and print the question from last game if skip fro
             if my_list[i] == "s":
                 print(my_list[i - 1])
             i = i + 1
-
+    return
 
 
 def Add_Kid(parent_id):  # Get kid and parent id and write the parent id in "Parent" in "Player_db"
     Player_db = pd.read_excel('Player_db.xlsx')
-    kid_id = int(input("Please enter kid id"))
+    kid_id = input("Please enter kid id")
     Player_db.loc[Player_db.ID == kid_id, 'Parent'] = parent_id
     writer = pd.ExcelWriter('Player_db.xlsx', engine='xlsxwriter')
     Player_db.to_excel(writer)
@@ -74,15 +73,15 @@ def Add_Kid(parent_id):  # Get kid and parent id and write the parent id in "Par
 
 def View_Kid():  # Get parent id and print all the kids that belong to the parent id from "Player_db"
     Player_db = pd.read_excel('Player_db.xlsx')
-    parent_id = int(input("Please enter parent id"))
+    parent_id = input("Please enter kid id")
     kids = Player_db.loc[Player_db.Parent == parent_id]
     print(kids['ID'])
+    return 1
 
 
 def Print_Login_Count():  # Get kid id and print login count from "Player_db"
     Player_db = pd.read_excel('Player_db.xlsx')
-    print(Player_db)
-    kid_id = int(input("Please enter kid id"))
+    kid_id = input("Please enter kid id")
     kid = Player_db.loc[Player_db.ID == kid_id]
     print(kid['Login_count'])
     return 1
@@ -92,7 +91,7 @@ def Example_Game():  # play game for example to Understand how to play the game
     x = 1
     print("Example Game\n Choose answer 1|2|3:")
     while x < 6:
-        print("Quetion:", x)
+        print("Question:", x)
         print("Answer 1")
         print("Answer 2")
         print("Answer 3")
@@ -202,7 +201,7 @@ def Add_Question():
 
 
 def Reset_Player():
-    ''' function deletes player's grades and last game data'''
+    """ function deletes player's grades and last game data"""
     id = int(input('Please enter ID of the child to reset data: '))
     players = pd.read_excel('Player_db.xlsx')
     if not (id in players.ID.values):
@@ -214,7 +213,7 @@ def Reset_Player():
     players.at[index, ('Last_Login', 'Q1', 'A1', 'Q2', 'A2', 'Q3', 'A3', 'Q4', 'A4', 'Q5', 'A5', 'Last grade')] = "NaN"
     players.to_excel('Player_db.xlsx')
     id_db = '{0}.xlsx'.format(id)
-    # create an empty data frame and overrite player's data base
+    # create an empty data frame and overwrite player's data base
     empty_db = pd.DataFrame(columns=['Date', 'Grade'])
     empty_db.to_excel(id_db)
     print('Players data was Reset')
@@ -282,7 +281,7 @@ def View_All(user_type):
     index = 0
     for user in UsersDB['ID']:
         types = UsersDB['User type'][index]
-        if (types == user_type):
+        if types == user_type:
             print(user)
         index = index + 1
 
@@ -291,6 +290,22 @@ def instructions():
     file = open("instruction1.txt", 'r')
     print(file.read())
     return 1
+
+
+def Game(choice, id):
+    Q_and_A_write = load_workbook(filename="Player_db.xlsx.xlsx")
+    sheet = write.active
+    Answer_read = pd.read_excel("Player_db.xlsx", "Sheet1")
+    Q_and_A_read = pd.read_excel("Question_db_new.xlsx", "Sheet1")
+
+
+#    if choice == 1:
+
+#    elif choice == 2:
+
+#    elif choice == 3:
+
+#    elif choice == 4:
 
 
 def Choose_Category(id):
@@ -307,103 +322,123 @@ def Choose_Category(id):
         print('3- Public places')
         print('4- Random questions')
         choice = input()
-    game(choice, id)  # TODO: game function - AMIT
+    Game(choice, id)
 
 
 def Print_Last_Game(id):
-    Player_db = pd.read_excel('Player_db.xlsx', "Sheet1")
+    Player_db=pd.read_excel("Player_db.xlsx", "Sheet1")
     flag = True
+    index=0
+    i=0
     for Id in Player_db['ID']:
-        if id == Id:
+        if int(id) == int(Id):
             flag = False
+            index=i
+        i+=1
     if not flag:
-        if Player_db[id]['Q1'] == None:
-            print("The player didnt play yet")
+        if str(Player_db['Q1'][index]) == str('nan'):
+            print("The player didn't play yet")
         else:
-            print("question 1: ", Player_db[id]['Q1'])
-            if Player_db[id]['A1'] == 's':
+            print("question 1: ",Player_db['Q1'][index])
+            if Player_db['A1'][index] == 's':
                 print("the player skipped the question")
             else:
-                print("answer 1: ", Player_db[id]['A1'])
-            print("question 2: ", Player_db[id]['Q2'])
-            if Player_db[id]['A2'] == 's':
+                print("answer 1: ",Player_db['A1'][index])
+            print("question 2: ",Player_db['Q2'][index])
+            if Player_db['A2'][index] == 's':
                 print("the player skipped the question")
             else:
-                print("answer 2: ", Player_db[id]['A2'])
-            print("question 3: ", Player_db[id]['Q3'])
-            if Player_db[id]['A3'] == 's':
+                print("answer 2: ",Player_db['A2'][index])
+            print("question 3: ",Player_db['Q3'][index])
+            if Player_db['A3'][index] == 's':
                 print("the player skipped the question")
             else:
-                print("answer 3: ", Player_db[id]['A3'])
-            print("question 4: ", Player_db[id]['Q4'])
-            if Player_db[id]['A4'] == 's':
+                print("answer 3: ",Player_db['A3'][index])
+            print("question 4: ",Player_db['Q4'][index])
+            if Player_db['A4'][index] == 's':
                 print("the player skipped the question")
             else:
-                print("answer 4: ", Player_db[id]['A4'])
-            print("question 5: ", Player_db[id]['Q5'])
-            if Player_db[id]['A5'] == 's':
+                print("answer 4: ",Player_db['A4'][index])
+            print("question 5: ",Player_db['Q5'][index])
+            if Player_db['A5'][index] == 's':
                 print("the player skipped the question")
             else:
-                print("answer 5: ", Player_db[id]['A5'])
+                print("answer 5: ",Player_db['A5'][index])
+    else:
+        print("Player ID was not found")
 
 
 def Player_Menu(id):
     print("Choose an option: ")
-    print('1- Play game \n2- Show game instructions \n3- Show grades')
-    print('4- Show last played game \n5- Show last game skipped question \n6- Show the latest grade')
-    print('7- Exit to login screen')
+    print("1- Play game \n2- Show game instructions \n3- Show grades")
+    print("4- Show last played game \n5- Show last game skipped question \n6- Show the latest grade")
+    print("7- Exit to login screen")
 
     choice = int(input())
-    if (choice == 1):
+    if choice == 1:
         Choose_Category(id)
-    if (choice == 2):
+        Player_Menu(id)
+    if choice == 2:
         instructions()
-    if (choice == 3):
+        Player_Menu(id)
+    if choice == 3:
         Print_Grades(id)
-    if (choice == 4):
-        Print_Last_Game(id)  # TODO:  Print_Last_Game - AMIT
-    if (choice == 5):
+        Player_Menu(id)
+    if choice == 4:
+        Print_Last_Game(id)
+        Player_Menu(id)
+    if choice == 5:
         View_Skip()
-    if (choice == 6):
-        Print_Last_Grade()  # TODO: Print_Last_Grade - OREN
-    if (choice == 7):
+        Player_Menu(id)
+    if choice == 6:
+        Print_Last_Grade()
+        Player_Menu(id)
+    if choice == 7:
         Login_And_SignIn()
-    Player_Menu(id)
+
 
 # --------------------------------------------------
 
 
 def Parent_Menu(id):
     print("Choose an option: ")
-    print('1- Add kid \n2- View kid\n3- Show grades ')
+    print("1- Add kid \n2- View kid\n3- Show last grade")
     print("4- Show the kid's login count \n5- Show last game skipped question \n6- Play example game")
-    print("7- Show kid's last game \n8- Show the kid's last game mistake \n9- Show the kid's last loggin date")
-    print('10- Exit to login screen')
+    print("7- Show kid's last game \n8- Show the kid's last game mistake \n9- Show the kid's last login date")
+    print("10- Exit to login screen")
 
     choice = int(input())
-    if (choice == 1):
+    if choice == 1:
         Add_Kid(id)
-    if (choice == 2):
-        View_Kid(id)
-    if (choice == 3):
-        Id = int(input('Please enter child ID: '))
+        Parent_Menu(id)
+    if choice == 2:
+        View_Kid()
+        Parent_Menu(id)
+    if choice == 3:
+        Id = int(input('Please enter child ID'))
         Print_Grades(Id)
-    if (choice == 4):
+        Parent_Menu(id)
+    if choice == 4:
         Print_Login_Count()
-    if (choice == 5):
+        Parent_Menu(id)
+    if choice == 5:
         View_Skip()
-    if (choice == 6):
+        Parent_Menu(id)
+    if choice == 6:
         Example_Game()
-    if (choice == 7):
-        Id = int(input('Please enter child ID: '))
-        Print_Last_Game(id)  # TODO: Print_Last_Game - Amit
-    if (choice == 8):
+        Parent_Menu(id)
+    if choice == 7:
+        Id = int(input('Please enter child ID'))
+        Print_Last_Game(Id)
+        Parent_Menu(id)
+    if choice == 8:
         Print_Last_Mistake()
-    if (choice == 9):
+        Parent_Menu(id)
+    if choice == 9:
         login_report()
-    if (choice == 10):
+        Parent_Menu(id)
+    if choice == 10:
         Login_And_SignIn()
-    Parent_Menu(id)
 
 
 # --------------------------------------------------
@@ -411,36 +446,43 @@ def Parent_Menu(id):
 
 def Professional_Menu(id):
     print('Choose an option: ')
-    print(
-        '1- Reports\n2- Watch childs grades\n3- Watch childs last games skipped questions\n4- Reset players data\n5- Add a question\n6- Delete a question')
-    print('7- Watch the most mistaken question\n8- Delete a user\258741359n9- Exit to login screen')
+    print("1- Reports\n2- Watch child's grades\n3- Watch child's last games skipped questions\n4- Reset players data\n5- Add a question\n6- Delete a question")
+    print('7- Watch the most mistaken question\n8- Delete a user\n9- Exit to login screen')
     choice = int(input())
-    if (choice == 1):
+    if choice == 1:
         print('1- Players report/n2- Parent report')
         report = int(input())
-        if (report == 1):
-            View_All(1)  # TODO: oren
-        elif (report == 2):
-            View_All(2)  # TODO: oren
-    if (choice == 2):
-        ID = input('Please enter childs ID: ')
-        Print_Grades(ID)
-    if (choice == 3):
-        ID = input('Please enter childs ID: ')
-        View_Skip(ID)
-    if (choice == 4):
+        if report == 1:
+            View_All(1)
+            Professional_Menu(id)
+        elif report == 2:
+            View_All(2)
+            Professional_Menu(id)
+    if choice == 2:
+        Id = input("Please enter child's ID")
+        Print_Grades(Id)
+        Professional_Menu(id)
+    if choice == 3:
+        Id = input("Please enter child's ID")
+        View_Skip(Id)
+        Professional_Menu(id)
+    if choice == 4:
         Reset_Player()
-    if (choice == 5):
+        Professional_Menu(id)
+    if choice == 5:
         Add_Question()
-    if (choice == 6):
+        Professional_Menu(id)
+    if choice == 6:
         Delete_Question()
-    if (choice == 7):
+        Professional_Menu(id)
+    if choice == 7:
         Delete_Question()
-    if (choice == 8):
+        Professional_Menu(id)
+    if choice == 8:
         Delete_User()
-    if (choice == 9):
+        Professional_Menu(id)
+    if choice == 9:
         Login_And_SignIn()
-    Professional_Menu(id)
 
 
 # --------------------------------------------------
@@ -448,12 +490,12 @@ def Professional_Menu(id):
 
 # login and sign-in function
 def Login_And_SignIn():
-    write = load_workbook(filename='Users_db.xlsx')
+    write = load_workbook(filename="Users_db.xlsx")
     sheet = write.active
-    Users_db = pd.read_excel('Users_db.xlsx', "Sheet1")
+    Users_db = pd.read_excel("Users_db.xlsx", "Sheet1")
 
     print("Welcome...")
-    welcome = input("Do you have an account? y/n: ")
+    welcome = input("Press y to login \nPress n to sign-in \nPress any other key to exit the system \n")
 
     if welcome == "n" or welcome == "N":
         count = 0
@@ -482,7 +524,7 @@ def Login_And_SignIn():
                 TypeCell.value = usertype
                 break
             print("ID already exist")
-        write.save(filename='Users_db.xlsx')
+        write.save(filename="Users_db.xlsx")
         if usertype == 1:
             print("Welcome to the Player Menu")
             Player_Menu(username)
@@ -515,16 +557,19 @@ def Login_And_SignIn():
                     if not flag:
                         if Users_db['Type'][line - 2] == 1:
                             print("Welcome to the Player Menu")
-                            Player_Menu(username)
+                            return Player_Menu(username)
                         elif Users_db['Type'][line - 2] == 2:
                             print("Welcome to the Parent Menu")
-                            Parent_Menu(username)
+                            return Parent_Menu(username)
                         elif Users_db['Type'][line - 2] == 3:
                             print("Welcome to the Professional Menu")
-                            Professional_Menu(username)
+                            return Professional_Menu(username)
                     print("Wrong password, try again")
                 break
             print("ID not exist in the system")
+
+
+Login_And_SignIn()
 
 
 
