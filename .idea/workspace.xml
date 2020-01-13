@@ -9,11 +9,11 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="CoverageDataManager">
-    <SUITE FILE_PATH="coverage/Stark_Industries$Unittests_for_WWUDo_Unit_Test.coverage" NAME="Unittests for WWUDo.Unit_Test Coverage Results" MODIFIED="1578779051945" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/Stark_Industries$Unittests_for_WWUDo_Unit_Test.coverage" NAME="Unittests for WWUDo.Unit_Test Coverage Results" MODIFIED="1578943506834" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/Stark_Industries$Unittests_for_WWUDo_Unit_Test_test_instructions.coverage" NAME="Unittests for WWUDo.Unit_Test.test_instructions Coverage Results" MODIFIED="1578936624040" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/Stark_Industries$Unittests_for_WWUDo_Unit_Test_test_View_Skip.coverage" NAME="Unittests for WWUDo.Unit_Test.test_View_Skip Coverage Results" MODIFIED="1578939758877" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/Stark_Industries$pro.coverage" NAME="pro Coverage Results" MODIFIED="1578940725680" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/Stark_Industries$Unittests_in_WWUDo_py.coverage" NAME="Unittests in WWUDo.py Coverage Results" MODIFIED="1578942679207" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/Stark_Industries$Unittests_in_WWUDo_py.coverage" NAME="Unittests in WWUDo.py Coverage Results" MODIFIED="1578942879331" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/Stark_Industries$Unittests_for_WWUDo_Unit_Test_test_Delete_User.coverage" NAME="Unittests for WWUDo.Unit_Test.test_Delete_User Coverage Results" MODIFIED="1578779098473" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
   <component name="FUSProjectUsageTrigger">
@@ -41,12 +41,12 @@
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="py" value="1061" />
+          <entry key="py" value="1101" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="Python" value="1061" />
+          <entry key="Python" value="1101" />
         </counts>
       </usages-collector>
     </session>
@@ -56,8 +56,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/WWUDo.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="251">
-              <caret line="63" column="63" selection-start-line="63" selection-start-column="63" selection-end-line="63" selection-end-column="63" />
+            <state relative-caret-position="161">
+              <caret line="46" column="10" selection-start-line="46" selection-start-column="10" selection-end-line="46" selection-end-column="10" />
               <folding>
                 <element signature="e#0#19#0" expanded="true" />
               </folding>
@@ -82,6 +82,8 @@
   <component name="FindInProjectRecents">
     <findStrings>
       <find>instructions()</find>
+      <find>Add_Question()</find>
+      <find>Add_Question</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -167,7 +169,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python tests.Unittests in WWUDo.py">
+  <component name="RunManager" selected="Python tests.Unittests for WWUDo.Unit_Test">
     <configuration default="true" type="PythonConfigurationType" factoryName="Python">
       <module name="Stark_Industries" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -212,7 +214,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="Unittests for WWUDo.Unit_Test.test_Delete_User" type="tests" factoryName="Unittests" temporary="true" nameIsGenerated="true">
+    <configuration name="Unittests for WWUDo.Unit_Test" type="tests" factoryName="Unittests" temporary="true" nameIsGenerated="true">
       <module name="Stark_Industries" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -223,7 +225,7 @@
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
       <option name="_new_additionalArguments" value="&quot;&quot;" />
-      <option name="_new_target" value="&quot;WWUDo.Unit_Test.test_Delete_User&quot;" />
+      <option name="_new_target" value="&quot;WWUDo.Unit_Test&quot;" />
       <option name="_new_targetType" value="&quot;PYTHON&quot;" />
       <method v="2" />
     </configuration>
@@ -274,18 +276,18 @@
     </configuration>
     <list>
       <item itemvalue="Python tests.Unittests for WWUDo.Unit_Test.test_View_Skip" />
-      <item itemvalue="Python tests.Unittests for WWUDo.Unit_Test.test_Delete_User" />
       <item itemvalue="Python tests.Unittests for WWUDo.Unit_Test.test_instructions" />
       <item itemvalue="Python.pro" />
       <item itemvalue="Python tests.Unittests in WWUDo.py" />
+      <item itemvalue="Python tests.Unittests for WWUDo.Unit_Test" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Python tests.Unittests for WWUDo.Unit_Test" />
         <item itemvalue="Python tests.Unittests in WWUDo.py" />
         <item itemvalue="Python.pro" />
         <item itemvalue="Python tests.Unittests for WWUDo.Unit_Test.test_View_Skip" />
         <item itemvalue="Python tests.Unittests for WWUDo.Unit_Test.test_instructions" />
-        <item itemvalue="Python tests.Unittests for WWUDo.Unit_Test.test_Delete_User" />
       </list>
     </recent_temporary>
   </component>
@@ -303,15 +305,6 @@
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="Unittests_for_WWUDo_Unit_Test_test_View_Skip - 2020.01.13 at 20h 00m 50s.xml">
-      <configuration name="Unittests for WWUDo.Unit_Test.test_View_Skip" configurationId="tests" />
-    </history-entry>
-    <history-entry file="Unittests_for_WWUDo_Unit_Test_test_View_Skip - 2020.01.13 at 20h 03m 22s.xml">
-      <configuration name="Unittests for WWUDo.Unit_Test.test_View_Skip" configurationId="tests" />
-    </history-entry>
-    <history-entry file="Unittests_for_WWUDo_Unit_Test_test_View_Skip - 2020.01.13 at 20h 09m 17s.xml">
-      <configuration name="Unittests for WWUDo.Unit_Test.test_View_Skip" configurationId="tests" />
-    </history-entry>
     <history-entry file="Unittests_for_WWUDo_Unit_Test_test_View_Skip - 2020.01.13 at 20h 10m 21s.xml">
       <configuration name="Unittests for WWUDo.Unit_Test.test_View_Skip" configurationId="tests" />
     </history-entry>
@@ -332,6 +325,15 @@
     </history-entry>
     <history-entry file="Unittests_in_WWUDo_py - 2020.01.13 at 20h 51m 14s.xml">
       <configuration name="Unittests in WWUDo.py" configurationId="tests" />
+    </history-entry>
+    <history-entry file="Unittests_in_WWUDo_py - 2020.01.13 at 21h 11m 17s.xml">
+      <configuration name="Unittests in WWUDo.py" configurationId="tests" />
+    </history-entry>
+    <history-entry file="Unittests_in_WWUDo_py - 2020.01.13 at 21h 14m 33s.xml">
+      <configuration name="Unittests in WWUDo.py" configurationId="tests" />
+    </history-entry>
+    <history-entry file="Unittests_for_WWUDo_Unit_Test - 2020.01.13 at 21h 15m 46s.xml">
+      <configuration name="Unittests for WWUDo.Unit_Test" configurationId="tests" />
     </history-entry>
   </component>
   <component name="TodoView">
@@ -408,8 +410,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/WWUDo.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="251">
-          <caret line="63" column="63" selection-start-line="63" selection-start-column="63" selection-end-line="63" selection-end-column="63" />
+        <state relative-caret-position="161">
+          <caret line="46" column="10" selection-start-line="46" selection-start-column="10" selection-end-line="46" selection-end-column="10" />
           <folding>
             <element signature="e#0#19#0" expanded="true" />
           </folding>

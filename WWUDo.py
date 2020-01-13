@@ -11,34 +11,7 @@ import sys
 # -----------------------------------
 
 # Elior Function
-class Unit_Test(unittest.TestCase):
 
-    def test_View_Skip(self):
-        self.assertEqual(View_Skip(), 1)
-
-    def test_Add_Kid(self):
-        self.assertEqual(Add_Kid(111111111), 1)
-
-    def test_Print_Login_Count(self):
-        self.assertEqual(Print_Login_Count(), 1)
-
-    def test_Example_Game(self):
-        self.assertEqual(Example_Game(), 1)
-
-    def test_Most_Mistakes(self):
-        self.assertEqual(Most_Mistakes(), 1)
-
-    def test_Delete_User(self):
-        self.assertEqual(Delete_User(), 1)
-
-    def test_Delete_Question(self):
-        self.assertEqual(Delete_Question(), 1)
-
-    def test_Add_Question(self):
-        self.assertEqual(Add_Question(), 1)
-
-    def test_instructions(self):
-        self.assertEqual(instructions(), 1)
 
 
 
@@ -70,10 +43,10 @@ def Add_Kid(parent_id):  # Get kid and parent id and write the parent id in "Par
 
 def View_Kid():  # Get parent id and print all the kids that belong to the parent id from "Player_db"
     Player_db = pd.read_excel('Player_db.xlsx')
-    parent_id = int(input("Please enter kid id"))
+    parent_id = int(input("Please enter parent id"))
     kids = Player_db.loc[Player_db.Parent == parent_id]
     print(kids['ID'])
-    return 1
+
 
 def Print_Login_Count():  # Get kid id and print login count from "Player_db"
     Player_db = pd.read_excel('Player_db.xlsx')
