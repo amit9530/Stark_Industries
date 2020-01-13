@@ -223,7 +223,7 @@ def Reset_Player():
 
 def login_report(id):
     """Print the player last login times"""
-    playerDB = pd.read_excel('C:\\Users\\xxore\\Documents\\Project GitHub\\Player_db.xlsx')
+    playerDB = pd.read_excel('Player_db.xlsx')
     index = 0
     for kid in playerDB['ID']:
         if int(kid) == int(id):
@@ -233,8 +233,8 @@ def login_report(id):
 
 def Print_Last_Mistake(id):
     """Print the last game mistakes"""
-    playerDB = pd.read_excel('C:\\Users\\xxore\\Documents\\Project GitHub\\Player_db.xlsx')
-    question = pd.read_excel('C:\\Users\\xxore\\Documents\\Project GitHub\\Question_db_new.xlsx')
+    playerDB = pd.read_excel('Player_db.xlsx')
+    question = pd.read_excel('Question_db_new.xlsx')
     index = 0
     QandA = []
     for kid in playerDB['ID']:
@@ -275,7 +275,7 @@ def Print_Last_Grade(id):
 def View_All(user_type):
     """View all the user type"""
     # Need to change to the right file path
-    UsersDB = pd.read_excel('C:\\Users\\xxore\\Documents\\Project\\Users_db.xlsx')
+    UsersDB = pd.read_excel('Users_db.xlsx')
     index = 0
     for user in UsersDB['ID']:
         types = UsersDB['User type'][index]
@@ -308,7 +308,7 @@ def Choose_Category(id):
 
 
 def Print_Last_Game(id):
-    Player_db = pd.read_excel("C:\\Users\\Amit\\Desktop\\new project\\Stark_Industries\\Player_db.xlsx", "Sheet1")
+    Player_db = pd.read_excel('Player_db.xlsx', "Sheet1")
     flag = True
     for Id in Player_db['ID']:
         if id == Id:
@@ -365,14 +365,14 @@ def Player_Menu(id):
         Print_Last_Grade()  # TODO: Print_Last_Grade - OREN
     if (choice == 7):
         Login_And_SignIn()
-
+    Player_Menu(id)
 
 # --------------------------------------------------
 
 
 def Parent_Menu(id):
     print("Choose an option: ")
-    print('1- Add kid \n2- View kid\n3- Show last grade ')
+    print('1- Add kid \n2- View kid\n3- Show grades ')
     print("4- Show the kid's login count \n5- Show last game skipped question \n6- Play example game")
     print("7- Show kid's last game \n8- Show the kid's last game mistake \n9- Show the kid's last loggin date")
     print('10- Exit to login screen')
@@ -383,7 +383,7 @@ def Parent_Menu(id):
     if (choice == 2):
         View_Kid(id)
     if (choice == 3):
-        Id = int(input('Please enter child ID'))
+        Id = int(input('Please enter child ID: '))
         Print_Grades(Id)
     if (choice == 4):
         Print_Login_Count()
@@ -392,7 +392,7 @@ def Parent_Menu(id):
     if (choice == 6):
         Example_Game()
     if (choice == 7):
-        Id = int(input('Please enter child ID'))
+        Id = int(input('Please enter child ID: '))
         Print_Last_Game(id)  # TODO: Print_Last_Game - Amit
     if (choice == 8):
         Print_Last_Mistake()
@@ -400,6 +400,7 @@ def Parent_Menu(id):
         login_report()
     if (choice == 10):
         Login_And_SignIn()
+    Parent_Menu(id)
 
 
 # --------------------------------------------------
@@ -408,8 +409,8 @@ def Parent_Menu(id):
 def Professional_Menu(id):
     print('Choose an option: ')
     print(
-        '1- Reports/n2- Watch childs grades/n3- Watch childs last games skipped questions/n4- Reset players data/n5- Add a question/n6- Delete a question')
-    print('7- Watch the most mistaken question/n8- Delete a user/n9- Exit to login screen')
+        '1- Reports\n2- Watch childs grades\n3- Watch childs last games skipped questions\n4- Reset players data\n5- Add a question\n6- Delete a question')
+    print('7- Watch the most mistaken question\n8- Delete a user\258741359n9- Exit to login screen')
     choice = int(input())
     if (choice == 1):
         print('1- Players report/n2- Parent report')
@@ -419,11 +420,11 @@ def Professional_Menu(id):
         elif (report == 2):
             View_All(2)  # TODO: oren
     if (choice == 2):
-        id = input('Please enter childs ID')
-        Print_Grades(id)
+        ID = input('Please enter childs ID: ')
+        Print_Grades(ID)
     if (choice == 3):
-        id = input('Please enter childs ID')
-        View_Skip(id)
+        ID = input('Please enter childs ID: ')
+        View_Skip(ID)
     if (choice == 4):
         Reset_Player()
     if (choice == 5):
@@ -436,6 +437,7 @@ def Professional_Menu(id):
         Delete_User()
     if (choice == 9):
         Login_And_SignIn()
+    Professional_Menu(id)
 
 
 # --------------------------------------------------
@@ -443,9 +445,9 @@ def Professional_Menu(id):
 
 # login and sign-in function
 def Login_And_SignIn():
-    write = load_workbook(filename="C:\\Users\\Amit\\Desktop\\new project\\Stark_Industries\\Users_db.xlsx")
+    write = load_workbook(filename='Users_db.xlsx')
     sheet = write.active
-    Users_db = pd.read_excel("C:\\Users\\Amit\\Desktop\\new project\\Stark_Industries\\Users_db.xlsx", "Sheet1")
+    Users_db = pd.read_excel('Users_db.xlsx', "Sheet1")
 
     print("Welcome...")
     welcome = input("Do you have an account? y/n: ")
@@ -477,7 +479,7 @@ def Login_And_SignIn():
                 TypeCell.value = usertype
                 break
             print("ID already exist")
-        write.save(filename="C:\\Users\\Amit\\Desktop\\new project\\Stark_Industries\\Users_db.xlsx")
+        write.save(filename='Users_db.xlsx')
         if usertype == 1:
             print("Welcome to the Player Menu")
             Player_Menu(username)
