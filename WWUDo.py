@@ -43,7 +43,6 @@ class Unit_Test(unittest.TestCase):
 
 
 def View_Skip():  # Get kid id and print the question from last game if skip from "User_db"
-    Player_db = pd.read_excel('Player_db.xlsx')
     kid_id = int(input("Please enter kid id"))
     Player_db = pd.read_excel('Player_db.xlsx')
     kid=Player_db.loc[Player_db.ID==kid_id]
@@ -522,9 +521,6 @@ def Login_And_SignIn():
                     print("Wrong password, try again")
                 break
             print("ID not exist in the system")
-
-
-
 
 
 
