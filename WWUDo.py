@@ -4,6 +4,89 @@ import numpy as np
 import functools
 import xlrd
 import unittest
+from openpyxl import load_workbook
+
+
+#login and sign-in function
+
+write = load_workbook(filename = "C:\\Users\\Amit\\Desktop\\new project\\Stark_Industries\\Users_db.xlsx")
+sheet = write.active
+UsersList = pd.read_excel("C:\\Users\\Amit\\Desktop\\new project\\Stark_Industries\\Users_db.xlsx", "Sheet1")
+
+print("Welcome...")
+welcome = input("Do you have an account? y/n: ")
+
+if welcome == "n" or welcome == "N":
+    count=0
+    for i in UsersList['ID']:
+        count+=1
+    count+=1
+    while True:
+        username = int(input("Enter a username: "))
+        flag = False
+        for Id in UsersList['ID']:
+            if username == Id:
+                flag = True
+        if not flag:
+            IdCell = sheet.cell(row=count+1, column=1)
+            IdCell.value = username
+            password = int(input("Enter a password: "))
+            PasswordCell=sheet.cell(row=count+1, column=2)
+            PasswordCell.value=password
+            print("Type 1 for Player")
+            print("Type 2 for Parent")
+            print("Type 3 for Professional")
+            usertype = int(input("Enter the user type: "))
+            while usertype!=1 and usertype!=2 and usertype!=3:
+                usertype = int(input("Wrong input, try again: "))
+            TypeCell=sheet.cell(row=count+1, column=3)
+            TypeCell.value=usertype
+            break
+        print("ID already exist")
+    write.save(filename = "C:\\Users\\Amit\\Desktop\\new project\\Stark_Industries\\Users_db.xlsx")
+    if usertype==1:
+        print("Welcome to the Player Menu")
+        PlayerMenu(username)
+    elif usertype==2:
+        print("Welcome to the Parent Menu")
+        ParentMenu(username)
+    elif usertype==3:
+        print("Welcome to the Professional Menu")
+        ProfessionalMenu(username)
+
+elif welcome == "y" or welcome == "Y":
+    while True:
+        username = int(input("Enter a username: "))
+        i =0;
+        for row in sheet.rows:
+            i = i+ 1;
+            for cell in row:
+                if cell.value == username:
+                    line=i
+        flag = True
+        for Id in UsersList['ID']:
+            if username == Id:
+                flag = False
+        if not flag:
+            print(line)
+            while True:
+                password=int(input("Enter a password: "))
+                flag=False
+                if password!=UsersList['Password'][line-2]:
+                    flag=True
+                if not flag:
+                    if UsersList['Type'][line-2]==1:
+                        print("Welcome to the Player Menu")
+                        PlayerMenu(username)
+                    elif UsersList['Type'][line-2]==2:
+                        print("Welcome to the Parent Menu")
+                        ParentMenu(username)
+                    elif UsersList['Type'][line-2]==3:
+                        print("Welcome to the Professional Menu")
+                        ProfessionalMenu(username)
+                print("Wrong password, try again")
+            break
+        print("ID not exist in the system")
 
 #-----------------------------------
 
