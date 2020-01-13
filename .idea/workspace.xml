@@ -13,10 +13,10 @@
     <SUITE FILE_PATH="coverage/Stark_Industries$Unittests_for_WWUDo_Unit_Test_test_instructions.coverage" NAME="Unittests for WWUDo.Unit_Test.test_instructions Coverage Results" MODIFIED="1578936624040" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/Stark_Industries$Unittests_for_WWUDo_Unit_Test_test_View_Skip.coverage" NAME="Unittests for WWUDo.Unit_Test.test_View_Skip Coverage Results" MODIFIED="1578939758877" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/Stark_Industries$pro.coverage" NAME="pro Coverage Results" MODIFIED="1578940725680" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/Stark_Industries$Unittests_in_WWUDo_py.coverage" NAME="Unittests in WWUDo.py Coverage Results" MODIFIED="1578942879331" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/Stark_Industries$Unittests_in_WWUDo_py.coverage" NAME="Unittests in WWUDo.py Coverage Results" MODIFIED="1578951524878" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/Stark_Industries$Unittests_for_WWUDo_Unit_Test_test_Delete_User.coverage" NAME="Unittests for WWUDo.Unit_Test.test_Delete_User Coverage Results" MODIFIED="1578779098473" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/Stark_Industries$WWUDo.coverage" NAME="WWUDo Coverage Results" MODIFIED="1578950833829" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/Stark_Industries$Unittests_in_UnitTest_py.coverage" NAME="Unittests in UnitTest.py Coverage Results" MODIFIED="1578950852346" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/Stark_Industries$Unittests_in_UnitTest_py.coverage" NAME="Unittests in UnitTest.py Coverage Results" MODIFIED="1578951330726" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
   <component name="FUSProjectUsageTrigger">
     <session id="-263939210">
@@ -34,23 +34,23 @@
       <usages-collector id="statistics.file.extensions.open">
         <counts>
           <entry key="pstat" value="1" />
-          <entry key="py" value="10" />
+          <entry key="py" value="11" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
           <entry key="Profiler Session" value="1" />
-          <entry key="Python" value="10" />
+          <entry key="Python" value="11" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="py" value="1527" />
+          <entry key="py" value="1529" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="Python" value="1527" />
+          <entry key="Python" value="1529" />
         </counts>
       </usages-collector>
     </session>
@@ -60,20 +60,11 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/WWUDo.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-251">
-              <caret line="97" lean-forward="true" selection-start-line="97" selection-end-line="97" />
+            <state relative-caret-position="351">
+              <caret line="85" column="13" lean-forward="true" selection-start-line="85" selection-start-column="13" selection-end-line="85" selection-end-column="13" />
               <folding>
-                <element signature="e#0#19#0" expanded="true" />
+                <element signature="e#13#32#0" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/UnitTest.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="66">
-              <caret line="3" column="35" selection-start-line="3" selection-start-column="35" selection-end-line="3" selection-end-column="35" />
             </state>
           </provider>
         </entry>
@@ -178,7 +169,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python tests.Unittests in UnitTest.py">
+  <component name="RunManager" selected="Python tests.Unittests in WWUDo.py">
     <configuration name="WWUDo" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="Stark_Industries" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -315,9 +306,9 @@
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Python tests.Unittests in WWUDo.py" />
         <item itemvalue="Python tests.Unittests in UnitTest.py" />
         <item itemvalue="Python.WWUDo" />
-        <item itemvalue="Python tests.Unittests in WWUDo.py" />
         <item itemvalue="Python.pro" />
         <item itemvalue="Python tests.Unittests for WWUDo.Unit_Test.test_View_Skip" />
       </list>
@@ -337,18 +328,6 @@
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="Unittests_for_WWUDo_Unit_Test - 2020.01.13 at 22h 43m 54s.xml">
-      <configuration name="Unittests for WWUDo.Unit_Test" configurationId="tests" />
-    </history-entry>
-    <history-entry file="Unittests_for_WWUDo_Unit_Test - 2020.01.13 at 22h 44m 27s.xml">
-      <configuration name="Unittests for WWUDo.Unit_Test" configurationId="tests" />
-    </history-entry>
-    <history-entry file="Unittests_for_WWUDo_Unit_Test - 2020.01.13 at 22h 45m 54s.xml">
-      <configuration name="Unittests for WWUDo.Unit_Test" configurationId="tests" />
-    </history-entry>
-    <history-entry file="Unittests_for_WWUDo_Unit_Test - 2020.01.13 at 22h 46m 02s.xml">
-      <configuration name="Unittests for WWUDo.Unit_Test" configurationId="tests" />
-    </history-entry>
     <history-entry file="Unittests_in_UnitTest_py - 2020.01.13 at 22h 46m 12s.xml">
       <configuration name="Unittests in UnitTest.py" configurationId="tests" />
     </history-entry>
@@ -367,6 +346,18 @@
     <history-entry file="Unittests_in_UnitTest_py - 2020.01.13 at 23h 28m 03s.xml">
       <configuration name="Unittests in UnitTest.py" configurationId="tests" />
     </history-entry>
+    <history-entry file="Unittests_in_UnitTest_py - 2020.01.13 at 23h 35m 31s.xml">
+      <configuration name="Unittests in UnitTest.py" configurationId="tests" />
+    </history-entry>
+    <history-entry file="Unittests_in_WWUDo_py - 2020.01.13 at 23h 35m 38s.xml">
+      <configuration name="Unittests in WWUDo.py" configurationId="tests" />
+    </history-entry>
+    <history-entry file="Unittests_in_WWUDo_py - 2020.01.13 at 23h 35m 50s.xml">
+      <configuration name="Unittests in WWUDo.py" configurationId="tests" />
+    </history-entry>
+    <history-entry file="Unittests_in_WWUDo_py - 2020.01.13 at 23h 35m 57s.xml">
+      <configuration name="Unittests in WWUDo.py" configurationId="tests" />
+    </history-entry>
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -379,7 +370,6 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1680" height="1050" extended-state="0" />
-    <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.13492064" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -413,13 +403,6 @@
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/../../minesweeper_test.py" />
-    <entry file="file://$APPLICATION_HOME_DIR$/helpers/pycharm/_jb_unittest_runner.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="478">
-          <caret line="34" selection-start-line="34" selection-end-line="34" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file:///Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/unittest/main.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="203">
@@ -451,6 +434,13 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$APPLICATION_HOME_DIR$/helpers/pycharm/_jb_unittest_runner.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="478">
+          <caret line="34" selection-start-line="34" selection-end-line="34" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/UnitTest.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="66">
@@ -460,10 +450,10 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/WWUDo.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-251">
-          <caret line="97" lean-forward="true" selection-start-line="97" selection-end-line="97" />
+        <state relative-caret-position="351">
+          <caret line="85" column="13" lean-forward="true" selection-start-line="85" selection-start-column="13" selection-end-line="85" selection-end-column="13" />
           <folding>
-            <element signature="e#0#19#0" expanded="true" />
+            <element signature="e#13#32#0" expanded="true" />
           </folding>
         </state>
       </provider>

@@ -11,7 +11,7 @@ import sys
 # -----------------------------------
 
 # Elior Function's
-
+# --------------------------------------------------
 def View_Skip():  # Get kid id and print the question from last game if skip from "User_db"
     kid_id = int(input("Please enter kid id"))
     Player_db = pd.read_excel('Player_db.xlsx')
@@ -31,8 +31,8 @@ def View_Skip():  # Get kid id and print the question from last game if skip fro
         return 0
     else:
          return 1
+# --------------------------------------------------
 
-parent_id=123456789
 def Add_Kid(parent_id):  # Get kid and parent id and write the parent id in "Parent" in "Player_db"
     Player_db = pd.read_excel('Player_db.xlsx')
     kid_id = int(input("Please enter kid id"))
@@ -46,6 +46,7 @@ def Add_Kid(parent_id):  # Get kid and parent id and write the parent id in "Par
         return 0
     else:
          return 1
+# --------------------------------------------------
 
 def View_Kid():  # Get parent id and print all the kids that belong to the parent id from "Player_db"
     Player_db = pd.read_excel('Player_db.xlsx')
@@ -58,6 +59,7 @@ def View_Kid():  # Get parent id and print all the kids that belong to the paren
          return 0
     else:
          return 1
+# --------------------------------------------------
 
 def Print_Login_Count(): # Get kid id and print login count from "Player_db"
     Player_db = pd.read_excel('Player_db.xlsx')
@@ -68,6 +70,7 @@ def Print_Login_Count(): # Get kid id and print login count from "Player_db"
         return 0
     else:
          return 1
+# --------------------------------------------------
 
 def Example_Game():  # play game for example to Understand how to play the game
     x = 1
