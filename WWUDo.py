@@ -225,7 +225,7 @@ def Reset_Player():
 
 def login_report(id):
     """Print the player last login times"""
-    playerDB = pd.read_excel('C:\\Users\\xxore\\Documents\\Project GitHub\\Player_db.xlsx')
+    playerDB = pd.read_excel('Player_db.xlsx')
     index = 0
     for kid in playerDB['ID']:
         if int(kid) == int(id):
@@ -235,8 +235,8 @@ def login_report(id):
 
 def Print_Last_Mistake(id):
     """Print the last game mistakes"""
-    playerDB = pd.read_excel('C:\\Users\\xxore\\Documents\\Project GitHub\\Player_db.xlsx')
-    question = pd.read_excel('C:\\Users\\xxore\\Documents\\Project GitHub\\Question_db_new.xlsx')
+    playerDB = pd.read_excel('Player_db.xlsx')
+    question = pd.read_excel('Question_db_new.xlsx')
     index = 0
     QandA = []
     for kid in playerDB['ID']:
@@ -277,7 +277,7 @@ def Print_Last_Grade(id):
 def View_All(user_type):
     """View all the user type"""
     # Need to change to the right file path
-    UsersDB = pd.read_excel('C:\\Users\\xxore\\Documents\\Project\\Users_db.xlsx')
+    UsersDB = pd.read_excel('Users_db.xlsx')
     index = 0
     for user in UsersDB['ID']:
         types = UsersDB['User type'][index]
@@ -310,7 +310,7 @@ def Choose_Category(id):
 
 
 def Print_Last_Game(id):
-    Player_db = pd.read_excel("C:\\Users\\Amit\\Desktop\\new project\\Stark_Industries\\Player_db.xlsx", "Sheet1")
+    Player_db = pd.read_excel('Player_db.xlsx', "Sheet1")
     flag = True
     for Id in Player_db['ID']:
         if id == Id:
@@ -367,7 +367,7 @@ def Player_Menu(id):
         Print_Last_Grade()  # TODO: Print_Last_Grade - OREN
     if (choice == 7):
         Login_And_SignIn()
-
+    Player_Menu(id)
 
 # --------------------------------------------------
 
@@ -402,6 +402,7 @@ def Parent_Menu(id):
         login_report()
     if (choice == 10):
         Login_And_SignIn()
+    Parent_Menu(id)
 
 
 # --------------------------------------------------
@@ -438,6 +439,7 @@ def Professional_Menu(id):
         Delete_User()
     if (choice == 9):
         Login_And_SignIn()
+    Professional_Menu(id)
 
 
 # --------------------------------------------------
@@ -445,9 +447,9 @@ def Professional_Menu(id):
 
 # login and sign-in function
 def Login_And_SignIn():
-    write = load_workbook(filename="C:\\Users\\Amit\\Desktop\\new project\\Stark_Industries\\Users_db.xlsx")
+    write = load_workbook(filename='Users_db.xlsx')
     sheet = write.active
-    Users_db = pd.read_excel("C:\\Users\\Amit\\Desktop\\new project\\Stark_Industries\\Users_db.xlsx", "Sheet1")
+    Users_db = pd.read_excel('Users_db.xlsx', "Sheet1")
 
     print("Welcome...")
     welcome = input("Do you have an account? y/n: ")
@@ -479,7 +481,7 @@ def Login_And_SignIn():
                 TypeCell.value = usertype
                 break
             print("ID already exist")
-        write.save(filename="C:\\Users\\Amit\\Desktop\\new project\\Stark_Industries\\Users_db.xlsx")
+        write.save(filename='Users_db.xlsx')
         if usertype == 1:
             print("Welcome to the Player Menu")
             Player_Menu(username)
