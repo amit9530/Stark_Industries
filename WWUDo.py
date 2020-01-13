@@ -11,7 +11,6 @@ import sys
 # -----------------------------------
 
 # Elior Function
-
 class Unit_Test(unittest.TestCase):
 
     def test_View_Skip(self):
@@ -42,13 +41,13 @@ class Unit_Test(unittest.TestCase):
         self.assertEqual(instructions(), 1)
 
 
+
 def View_Skip():  # Get kid id and print the question from last game if skip from "User_db"
-    kid_id = input("Please enter kid id")
-    suffix = ".xlsx"
-    file_name = str(kid_id)
-    User = pd.read_excel(file_name + suffix)
-    Row_List = []
-    for index, rows in User.iterrows():
+    Player_db = pd.read_excel('Player_db.xlsx')
+    kid_id = int(input("Please enter kid id"))
+    Player_db = pd.read_excel('Player_db.xlsx')
+    kid=Player_db.loc[Player_db.ID==kid_id]
+    for index, rows in kid.iterrows():
         my_list = [rows.Q1, rows.A1, rows.Q2, rows.A2, rows.Q3, rows.A3, rows.Q4, rows.A4, rows.Q5, rows.A5]
     if "s" not in my_list:
         print("No questions were skipped")
@@ -58,12 +57,11 @@ def View_Skip():  # Get kid id and print the question from last game if skip fro
             if my_list[i] == "s":
                 print(my_list[i - 1])
             i = i + 1
-    return
 
 
 def Add_Kid(parent_id):  # Get kid and parent id and write the parent id in "Parent" in "Player_db"
     Player_db = pd.read_excel('Player_db.xlsx')
-    kid_id = input("Please enter kid id")
+    kid_id = int(input("Please enter kid id"))
     Player_db.loc[Player_db.ID == kid_id, 'Parent'] = parent_id
     writer = pd.ExcelWriter('Player_db.xlsx', engine='xlsxwriter')
     Player_db.to_excel(writer)
@@ -73,15 +71,15 @@ def Add_Kid(parent_id):  # Get kid and parent id and write the parent id in "Par
 
 def View_Kid():  # Get parent id and print all the kids that belong to the parent id from "Player_db"
     Player_db = pd.read_excel('Player_db.xlsx')
-    parent_id = input("Please enter kid id")
+    parent_id = int(input("Please enter kid id"))
     kids = Player_db.loc[Player_db.Parent == parent_id]
     print(kids['ID'])
     return 1
 
-
 def Print_Login_Count():  # Get kid id and print login count from "Player_db"
     Player_db = pd.read_excel('Player_db.xlsx')
-    kid_id = input("Please enter kid id")
+    print(Player_db)
+    kid_id = int(input("Please enter kid id"))
     kid = Player_db.loc[Player_db.ID == kid_id]
     print(kid['Login_count'])
     return 1
@@ -383,7 +381,7 @@ def Parent_Menu(id):
     if (choice == 1):
         Add_Kid(id)
     if (choice == 2):
-        View_Kid()
+        View_Kid(id)
     if (choice == 3):
         Id = int(input('Please enter child ID'))
         Print_Grades(Id)
@@ -524,7 +522,7 @@ def Login_And_SignIn():
             print("ID not exist in the system")
 
 
-Login_And_SignIn()
+
 
 
 
