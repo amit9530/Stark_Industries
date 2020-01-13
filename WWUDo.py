@@ -3,50 +3,16 @@ import xlsxwriter
 import numpy as np
 import functools
 import xlrd
-import unittest
 from openpyxl import load_workbook
 import sys
 
 
 # -----------------------------------
 
-# Elior Function
-
-class Unit_Test(unittest.TestCase):
-
-    def test_View_Skip(self):
-        self.assertEqual(View_Skip(), 1)
-
-    def test_Add_Kid(self):
-        self.assertEqual(Add_Kid(987654321), 1)
-
-    def test_Print_Login_Count(self):
-        self.assertEqual(Print_Login_Count(), 1)
-
-    def test_Example_Game(self):
-        self.assertEqual(Example_Game(), 1)
-
-    def test_Most_Mistakes(self):
-        self.assertEqual(Most_Mistakes(), 1)
-
-    def test_Delete_User(self):
-        self.assertEqual(Delete_User(), 1)
-
-    def test_Delete_Question(self):
-        self.assertEqual(Delete_Question(), 1)
-
-    def test_Add_Question(self):
-        self.assertEqual(Add_Question(), 1)
-
-    def test_instructions(self):
-        self.assertEqual(instructions(), 1)
-
-
-
+# Elior Function's
 
 def View_Skip():  # Get kid id and print the question from last game if skip from "User_db"
     kid_id = int(input("Please enter kid id"))
-
     Player_db = pd.read_excel('Player_db.xlsx')
     kid=Player_db.loc[Player_db.ID==kid_id]
     for index, rows in kid.iterrows():
@@ -59,9 +25,13 @@ def View_Skip():  # Get kid id and print the question from last game if skip fro
             if my_list[i] == "s":
                 print(my_list[i - 1])
             i = i + 1
+    #Unit_Test
+    if kid_id==(int((kid['ID']))):
+        return 0
+    else:
+         return 1
 
-
-
+parent_id=123456789
 def Add_Kid(parent_id):  # Get kid and parent id and write the parent id in "Parent" in "Player_db"
     Player_db = pd.read_excel('Player_db.xlsx')
     kid_id = int(input("Please enter kid id"))
@@ -69,24 +39,34 @@ def Add_Kid(parent_id):  # Get kid and parent id and write the parent id in "Par
     writer = pd.ExcelWriter('Player_db.xlsx', engine='xlsxwriter')
     Player_db.to_excel(writer)
     writer.save()
-    return 1
-
+    #Unit_Test
+    parent=Player_db.loc[Player_db.Parent==parent_id]
+    if parent_id==int(parent['Parent']):
+        return 0
+    else:
+         return 1
 
 def View_Kid():  # Get parent id and print all the kids that belong to the parent id from "Player_db"
     Player_db = pd.read_excel('Player_db.xlsx')
     parent_id = int(input("Please enter parent id"))
     kids = Player_db.loc[Player_db.Parent == parent_id]
     print(kids['ID'])
+    #Unit_Test
+    parent=Player_db.loc[Player_db.Parent==parent_id]
+    if parent_id == int(parent['Parent']):
+         return 0
+    else:
+         return 1
 
-
-def Print_Login_Count():  # Get kid id and print login count from "Player_db"
+def Print_Login_Count(): # Get kid id and print login count from "Player_db"
     Player_db = pd.read_excel('Player_db.xlsx')
-    print(Player_db)
     kid_id = int(input("Please enter kid id"))
     kid = Player_db.loc[Player_db.ID == kid_id]
     print(kid['Login_count'])
-    return 1
-
+    if kid_id==(int((kid['ID']))):
+        return 0
+    else:
+         return 1
 
 def Example_Game():  # play game for example to Understand how to play the game
     x = 1
