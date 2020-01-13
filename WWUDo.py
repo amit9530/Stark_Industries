@@ -374,7 +374,7 @@ def Player_Menu(id):
 
 def Parent_Menu(id):
     print("Choose an option: ")
-    print('1- Add kid \n2- View kid\n3- Show last grade ')
+    print('1- Add kid \n2- View kid\n3- Show grades ')
     print("4- Show the kid's login count \n5- Show last game skipped question \n6- Play example game")
     print("7- Show kid's last game \n8- Show the kid's last game mistake \n9- Show the kid's last loggin date")
     print('10- Exit to login screen')
@@ -385,7 +385,7 @@ def Parent_Menu(id):
     if (choice == 2):
         View_Kid()
     if (choice == 3):
-        Id = int(input('Please enter child ID'))
+        Id = int(input('Please enter child ID: '))
         Print_Grades(Id)
     if (choice == 4):
         Print_Login_Count()
@@ -394,7 +394,7 @@ def Parent_Menu(id):
     if (choice == 6):
         Example_Game()
     if (choice == 7):
-        Id = int(input('Please enter child ID'))
+        Id = int(input('Please enter child ID: '))
         Print_Last_Game(id)  # TODO: Print_Last_Game - Amit
     if (choice == 8):
         Print_Last_Mistake()
@@ -411,8 +411,8 @@ def Parent_Menu(id):
 def Professional_Menu(id):
     print('Choose an option: ')
     print(
-        '1- Reports/n2- Watch childs grades/n3- Watch childs last games skipped questions/n4- Reset players data/n5- Add a question/n6- Delete a question')
-    print('7- Watch the most mistaken question/n8- Delete a user/n9- Exit to login screen')
+        '1- Reports\n2- Watch childs grades\n3- Watch childs last games skipped questions\n4- Reset players data\n5- Add a question\n6- Delete a question')
+    print('7- Watch the most mistaken question\n8- Delete a user\258741359n9- Exit to login screen')
     choice = int(input())
     if (choice == 1):
         print('1- Players report/n2- Parent report')
@@ -422,11 +422,11 @@ def Professional_Menu(id):
         elif (report == 2):
             View_All(2)  # TODO: oren
     if (choice == 2):
-        id = input('Please enter childs ID')
-        Print_Grades(id)
+        ID = input('Please enter childs ID: ')
+        Print_Grades(ID)
     if (choice == 3):
-        id = input('Please enter childs ID')
-        View_Skip(id)
+        ID = input('Please enter childs ID: ')
+        View_Skip(ID)
     if (choice == 4):
         Reset_Player()
     if (choice == 5):
