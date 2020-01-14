@@ -5,7 +5,7 @@ import functools
 import xlrd
 from openpyxl import load_workbook
 import sys
-
+import time
 
 
 # -----------------------------------
@@ -15,7 +15,7 @@ import sys
 def View_Skip():  # Get kid id and print the question from last game if skip from "User_db"
     kid_id = int(input("Please enter kid id"))
     Player_db = pd.read_excel('Player_db.xlsx')
-    kid=Player_db.loc[Player_db.ID==kid_id]
+    kid = Player_db.loc[Player_db.ID == kid_id]
     for index, rows in kid.iterrows():
         my_list = [rows.Q1, rows.A1, rows.Q2, rows.A2, rows.Q3, rows.A3, rows.Q4, rows.A4, rows.Q5, rows.A5]
     if "s" not in my_list:
@@ -26,11 +26,13 @@ def View_Skip():  # Get kid id and print the question from last game if skip fro
             if my_list[i] == "s":
                 print(my_list[i - 1])
             i = i + 1
-    #Unit_Test
-    if kid_id==(int((kid['ID']))):
+    # Unit_Test
+    if kid_id == (int((kid['ID']))):
         return 0
     else:
-         return 1
+        return 1
+
+
 # --------------------------------------------------
 
 def Add_Kid(parent_id):  # Get kid and parent id and write the parent id in "Parent" in "Player_db"
@@ -40,12 +42,14 @@ def Add_Kid(parent_id):  # Get kid and parent id and write the parent id in "Par
     writer = pd.ExcelWriter('Player_db.xlsx', engine='xlsxwriter')
     Player_db.to_excel(writer)
     writer.save()
-    #Unit_Test
-    parent=Player_db.loc[Player_db.Parent==parent_id]
-    if parent_id==int(parent['Parent']):
+    # Unit_Test
+    parent = Player_db.loc[Player_db.Parent == parent_id]
+    if parent_id == int(parent['Parent']):
         return 0
     else:
-         return 1
+        return 1
+
+
 # --------------------------------------------------
 
 def View_Kid():  # Get parent id and print all the kids that belong to the parent id from "Player_db"
@@ -53,30 +57,34 @@ def View_Kid():  # Get parent id and print all the kids that belong to the paren
     parent_id = int(input("Please enter parent id"))
     kids = Player_db.loc[Player_db.Parent == parent_id]
     print(kids['ID'])
-    #Unit_Test
-    parent=Player_db.loc[Player_db.Parent==parent_id]
+    # Unit_Test
+    parent = Player_db.loc[Player_db.Parent == parent_id]
     if parent_id == int(parent['Parent']):
-         return 0
+        return 0
     else:
-         return 1
+        return 1
+
+
 # --------------------------------------------------
 
-def Print_Login_Count(): # Get kid id and print login count from "Player_db"
+def Print_Login_Count():  # Get kid id and print login count from "Player_db"
     Player_db = pd.read_excel('Player_db.xlsx')
     kid_id = int(input("Please enter kid id"))
     kid = Player_db.loc[Player_db.ID == kid_id]
     print(kid['Login_count'])
-    if kid_id==(int((kid['ID']))):
+    if kid_id == (int((kid['ID']))):
         return 0
     else:
-         return 1
+        return 1
+
+
 # --------------------------------------------------
 
 def Example_Game():  # play game for example to Understand how to play the game
     x = 1
     print("Example Game\n Choose answer 1|2|3:")
     while x < 6:
-        print("Quetion:", x)
+        print("Question:", x)
         print("Answer 1")
         print("Answer 2")
         print("Answer 3")
@@ -84,7 +92,7 @@ def Example_Game():  # play game for example to Understand how to play the game
         if user_input == '1' or user_input == '2' or user_input == '3':
             print("You choose answer : ", user_input)
         else:
-            print("*** Worng  answer! ***\n*** Choose Only  1 | 2 | 3 ***")
+            print("*** Wrong  answer! ***\n*** Choose Only  1 | 2 | 3 ***")
             x = x - 1
         x = x + 1
     return 1
@@ -92,7 +100,7 @@ def Example_Game():  # play game for example to Understand how to play the game
 
 # -----------------------------------
 def Print_Grades(id):
-    ''' function gets id of player and prints all grades from the player's data base'''
+    """ function gets id of player and prints all grades from the player's data base"""
     player_db = '{0}.xlsx'.format(id)
     grades = pd.read_excel(player_db)
     print('Printing grades: ')
@@ -101,7 +109,7 @@ def Print_Grades(id):
 
 
 def Most_Mistakes():
-    ''' function searches in data base for the question with most mistakes and prints it'''
+    """ function searches in data base for the question with most mistakes and prints it"""
     questions_db = pd.read_excel('Question_db_new.xlsx')
     max_mistakes = 0
     for mistake in questions_db['Mistakes']:
@@ -114,7 +122,7 @@ def Most_Mistakes():
 
 
 def Delete_User():
-    ''' function deletes user from player db and users db'''
+    """ function deletes user from player db and users db"""
     id = int(input('Please enter the ID of the user to delete: '))
     # search and delete from players data base
     players = pd.read_excel('Player_db.xlsx')
@@ -132,17 +140,17 @@ def Delete_User():
             new_users.to_excel("Users_db.xlsx")
             print('User deleted!')
             return
-    # if the id wasnt found in any data base
+    # if the id wasn't found in any data base
     print('Error - ID not found')
     return 1
 
 
 def Delete_Question():
-    ''' function print all questions in the relevant category , and deletes the question the user chose'''
+    """ function print all questions in the relevant category , and deletes the question the user chose"""
     while True:
         category = input('Please choose a category to delete from (School, Home or Public Places): ')
-        if (category == 'Home' or category == 'School' or category == 'Public Places'):
-            break;
+        if category == 'Home' or category == 'School' or category == 'Public Places':
+            break
         else:
             print('Invalid category!')
     questions = pd.read_excel('Question_db_new.xlsx')
@@ -164,11 +172,11 @@ def Delete_Question():
 
 
 def Add_Question():
-    ''' function adds question according to the category the user chose'''
+    """ function adds question according to the category the user chose"""
     while True:
         category = input('Please choose category to add a question (School, Home or Public Places): ')
-        if (category == 'Home' or category == 'School' or category == 'Public Places'):
-            break;
+        if category == 'Home' or category == 'School' or category == 'Public Places':
+            break
         else:
             print('Invalid category!')
     ques = input('Please enter the question to add: ')
@@ -238,10 +246,8 @@ def Print_Last_Mistake(id):
             if str(q) == str(QandA[index][0]):
                 if not (question['Right Answer'][i] == QandA[index][1]):
                     if QandA[index][1] == 's':
-                        print("Question:\n{0}\nwas skipped.\nThe correct answer is:\n{1}".format(QandA[index][0],
-                                                                                                 question[
-                                                                                                     'Right Answer'][
-                                                                                                     i]))
+                        print("Question:\n{0}\nwas skipped.\nThe correct answer is:\n{1}".
+                              format(QandA[index][0],question['Right Answer'][i]))
                     else:
                         print("The question:\n{0}\nis incorrect.\nYour answer:\n{1}\nThe correct answer is:\n{2}"
                               .format(QandA[index][0], QandA[index][1], question['Right Answer'][i]))
@@ -278,8 +284,8 @@ def instructions():
 
 
 def Game(choice, id):
-    Q_and_A_write = load_workbook(filename="Player_db.xlsx.xlsx")
-    sheet = write.active
+    Q_and_A_write = load_workbook(filename="Player_db.xlsx")
+    sheet = Q_and_A_write.active
     Answer_read = pd.read_excel("Player_db.xlsx", "Sheet1")
     Q_and_A_read = pd.read_excel("Question_db_new.xlsx", "Sheet1")
 
@@ -311,44 +317,44 @@ def Choose_Category(id):
 
 
 def Print_Last_Game(id):
-    Player_db=pd.read_excel("Player_db.xlsx", "Sheet1")
+    Player_db = pd.read_excel("Player_db.xlsx", "Sheet1")
     flag = True
-    index=0
-    i=0
+    index = 0
+    i = 0
     for Id in Player_db['ID']:
         if int(id) == int(Id):
             flag = False
-            index=i
-        i+=1
+            index = i
+        i += 1
     if not flag:
         if str(Player_db['Q1'][index]) == str('nan'):
             print("The player didn't play yet")
         else:
-            print("question 1: ",Player_db['Q1'][index])
+            print("question 1: ", Player_db['Q1'][index])
             if Player_db['A1'][index] == 's':
                 print("the player skipped the question")
             else:
-                print("answer 1: ",Player_db['A1'][index])
-            print("question 2: ",Player_db['Q2'][index])
+                print("answer 1: ", Player_db['A1'][index])
+            print("question 2: ", Player_db['Q2'][index])
             if Player_db['A2'][index] == 's':
                 print("the player skipped the question")
             else:
-                print("answer 2: ",Player_db['A2'][index])
-            print("question 3: ",Player_db['Q3'][index])
+                print("answer 2: ", Player_db['A2'][index])
+            print("question 3: ", Player_db['Q3'][index])
             if Player_db['A3'][index] == 's':
                 print("the player skipped the question")
             else:
-                print("answer 3: ",Player_db['A3'][index])
-            print("question 4: ",Player_db['Q4'][index])
+                print("answer 3: ", Player_db['A3'][index])
+            print("question 4: ", Player_db['Q4'][index])
             if Player_db['A4'][index] == 's':
                 print("the player skipped the question")
             else:
-                print("answer 4: ",Player_db['A4'][index])
-            print("question 5: ",Player_db['Q5'][index])
+                print("answer 4: ", Player_db['A4'][index])
+            print("question 5: ", Player_db['Q5'][index])
             if Player_db['A5'][index] == 's':
                 print("the player skipped the question")
             else:
-                print("answer 5: ",Player_db['A5'][index])
+                print("answer 5: ", Player_db['A5'][index])
     else:
         print("Player ID was not found")
 
@@ -431,11 +437,12 @@ def Parent_Menu(id):
 
 def Professional_Menu(id):
     print('Choose an option: ')
-    print("1- Reports\n2- Watch child's grades\n3- Watch child's last games skipped questions\n4- Reset players data\n5- Add a question\n6- Delete a question")
+    print("1- Reports\n2- Watch child's grades\n3- Watch child's last games skipped questions\n"
+          "4- Reset players data\n5- Add a question\n6- Delete a question")
     print('7- Watch the most mistaken question\n8- Delete a user\n9- Exit to login screen')
     choice = int(input())
     if choice == 1:
-        print('1- Players report/n2- Parent report')
+        print('1- Players report\n2- Parent report')
         report = int(input())
         if report == 1:
             View_All(1)
