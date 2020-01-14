@@ -473,15 +473,17 @@ def Professional_Menu(id):
 # --------------------------------------------------
 
 
-# login and sign-in function
+# login and sign-up function
 def Login_And_SignIn():
     write = load_workbook(filename="Users_db.xlsx")
     sheet = write.active
     Users_db = pd.read_excel("Users_db.xlsx", "Sheet1")
-
+    login_count = load_workbook(filename="Player_db.xlsx")
+    Login_c = login_count.active
     print("Welcome...")
-    welcome = input("Press y to login \nPress n to sign-in \nPress any other key to exit the system \n")
+    welcome = input("Press y to login \nPress n to sign-up \nPress any other key to exit the system \n")
 
+    # Sign-up function
     if welcome == "n" or welcome == "N":
         count = 0
         for i in Users_db['ID']:
@@ -511,21 +513,39 @@ def Login_And_SignIn():
             print("ID already exist")
         write.save(filename="Users_db.xlsx")
         if usertype == 1:
-            print("Welcome to the Player Menu")
+            i = 0
+            for row in Login_c.rows:
+                i = i + 1
+                Line = i
+            Line = Line + 1
+            tempLine = Line
+            print("the line is: ", Line)
+            CurDate = time.asctime(time.localtime(time.time()))
+            NumCell = Login_c.cell(row=Line, column=1)
+            NumCell.value = tempLine - 2
+            IDcell = Login_c.cell(row=Line, column=2)
+            IDcell.value = username
+            DateCell = Login_c.cell(row=Line, column=3)
+            DateCell.value = CurDate
+            LogCell = Login_c.cell(row=Line, column=4)
+            LogCell.value = 1
+            login_count.save(filename="Player_db.xlsx")
+            print("\nWelcome to the Player Menu\n")
             Player_Menu(username)
         elif usertype == 2:
-            print("Welcome to the Parent Menu")
+            print("\nWelcome to the Parent Menu\n")
             Parent_Menu(username)
         elif usertype == 3:
-            print("Welcome to the Professional Menu")
+            print("\nWelcome to the Professional Menu\n")
             Professional_Menu(username)
 
+    # Login function
     elif welcome == "y" or welcome == "Y":
         while True:
             username = int(input("Enter a username: "))
-            i = 0;
+            i = 0
             for row in sheet.rows:
-                i = i + 1;
+                i = i + 1
                 for cell in row:
                     if cell.value == username:
                         line = i
@@ -541,13 +561,26 @@ def Login_And_SignIn():
                         flag = True
                     if not flag:
                         if Users_db['Type'][line - 2] == 1:
-                            print("Welcome to the Player Menu")
+                            k = 0
+                            for row in Login_c.rows:
+                                k = k + 1
+                                for cell in row:
+                                    if cell.value == username:
+                                        LINE = k
+                            print(LINE)
+                            CurDate = time.asctime(time.localtime(time.time()))
+                            DateCell = Login_c.cell(row=LINE, column=3)
+                            DateCell.value = CurDate
+                            LogCell = Login_c.cell(row=LINE, column=4)
+                            LogCell.value = LogCell.value + 1
+                            login_count.save(filename="Player_db.xlsx")
+                            print("\nWelcome to the Player Menu\n")
                             return Player_Menu(username)
                         elif Users_db['Type'][line - 2] == 2:
-                            print("Welcome to the Parent Menu")
+                            print("\nWelcome to the Parent Menu\n")
                             return Parent_Menu(username)
                         elif Users_db['Type'][line - 2] == 3:
-                            print("Welcome to the Professional Menu")
+                            print("\nWelcome to the Professional Menu\n")
                             return Professional_Menu(username)
                     print("Wrong password, try again")
                 break
@@ -555,8 +588,3 @@ def Login_And_SignIn():
 
 
 Login_And_SignIn()
-
-
-
-
-
