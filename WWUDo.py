@@ -6,6 +6,9 @@ import xlrd
 from openpyxl import load_workbook
 import sys
 import time
+from random import seed
+from random import randint
+from random import sample
 
 
 # -----------------------------------
@@ -247,7 +250,7 @@ def Print_Last_Mistake(id):
                 if not (question['Right Answer'][i] == QandA[index][1]):
                     if QandA[index][1] == 's':
                         print("Question:\n{0}\nwas skipped.\nThe correct answer is:\n{1}".
-                              format(QandA[index][0],question['Right Answer'][i]))
+                              format(QandA[index][0], question['Right Answer'][i]))
                     else:
                         print("The question:\n{0}\nis incorrect.\nYour answer:\n{1}\nThe correct answer is:\n{2}"
                               .format(QandA[index][0], QandA[index][1], question['Right Answer'][i]))
@@ -283,20 +286,53 @@ def instructions():
     return 1
 
 
-def Game(choice, id):
+def Game(category, id):
     Q_and_A_write = load_workbook(filename="Player_db.xlsx")
     sheet = Q_and_A_write.active
     Answer_read = pd.read_excel("Player_db.xlsx", "Sheet1")
     Q_and_A_read = pd.read_excel("Question_db_new.xlsx", "Sheet1")
+    if category == 1:
+        num = 0
+        i = 0
+        Q_I_Arr = []
+        for cat in Q_and_A_read['Category']:
+            if cat == 'School':
+                num += 1
+                Q_I_Arr.append(Q_and_A_read['Index'][i])
+            i += 1
+        Random_Arr = [sample(range(1, num + 1), 5)]
+        print("the num is: ", num)
+        print("the index arr is: ", Q_I_Arr)
+    elif category == 2:
+        num = 0
+        i = 0
+        Q_I_Arr = []
+        for cat in Q_and_A_read['Category']:
+            if cat == 'Home':
+                num += 1
+                Q_I_Arr.append(Q_and_A_read['Index'][i])
+            i += 1
+        Random_Arr = [sample(range(1, num + 1), 5)]
+    elif category == 3:
+        num = 0
+        i = 0
+        Q_I_Arr = []
+        for cat in Q_and_A_read['Category']:
+            if cat == 'Public Place':
+                num += 1
+                Q_I_Arr.append(Q_and_A_read['Index'][i])
+            i += 1
+        Random_Arr = [sample(range(1, num + 1), 5)]
+    elif category == 4:
+        num = 0
+        for cat in Q_and_A_read['Category']:
+            num += 1
+        Random_Arr = [sample(range(1, num + 1), 5)]
+        print("the num is: ", num)
+        print("the arr is: ", Random_Arr)
 
 
-#    if choice == 1:
-
-#    elif choice == 2:
-
-#    elif choice == 3:
-
-#    elif choice == 4:
+Game(4, 1)
 
 
 def Choose_Category(id):
@@ -593,5 +629,4 @@ def Login_And_SignIn():
                 break
             print("ID not exist in the system")
 
-
-Login_And_SignIn()
+# Login_And_SignIn()
