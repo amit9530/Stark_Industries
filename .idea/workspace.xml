@@ -10,47 +10,48 @@
   </component>
   <component name="CoverageDataManager">
     <SUITE FILE_PATH="coverage/Stark_Industries$Unittests_for_WWUDo_Unit_Test.coverage" NAME="Unittests for WWUDo.Unit_Test Coverage Results" MODIFIED="1578948361628" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/Stark_Industries$Unittests_for_UnitTest_Unit_Test_test_View_Kid.coverage" NAME="Unittests for UnitTest.Unit_Test.test_View_Kid Coverage Results" MODIFIED="1579186132428" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/Stark_Industries$Unittests_for_WWUDo_Unit_Test_test_instructions.coverage" NAME="Unittests for WWUDo.Unit_Test.test_instructions Coverage Results" MODIFIED="1578936624040" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/Stark_Industries$Unittests_for_WWUDo_Unit_Test_test_View_Skip.coverage" NAME="Unittests for WWUDo.Unit_Test.test_View_Skip Coverage Results" MODIFIED="1578939758877" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/Stark_Industries$pro.coverage" NAME="pro Coverage Results" MODIFIED="1578940725680" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/Stark_Industries$Unittests_in_WWUDo_py.coverage" NAME="Unittests in WWUDo.py Coverage Results" MODIFIED="1578951524878" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/Stark_Industries$Unittests_for_WWUDo_Unit_Test_test_Delete_User.coverage" NAME="Unittests for WWUDo.Unit_Test.test_Delete_User Coverage Results" MODIFIED="1578779098473" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/Stark_Industries$WWUDo.coverage" NAME="WWUDo Coverage Results" MODIFIED="1578950833829" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/Stark_Industries$Unittests_in_UnitTest_py.coverage" NAME="Unittests in UnitTest.py Coverage Results" MODIFIED="1578951330726" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/Stark_Industries$WWUDo.coverage" NAME="WWUDo Coverage Results" MODIFIED="1579186256968" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/Stark_Industries$Unittests_in_UnitTest_py.coverage" NAME="Unittests in UnitTest.py Coverage Results" MODIFIED="1579185984580" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
   <component name="FUSProjectUsageTrigger">
     <session id="-263939210">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="5" />
+          <entry key="project.closed" value="6" />
           <entry key="project.open.time.1" value="1" />
           <entry key="project.open.time.4" value="1" />
-          <entry key="project.open.time.5" value="1" />
+          <entry key="project.open.time.5" value="2" />
           <entry key="project.open.time.6" value="1" />
           <entry key="project.open.time.8" value="1" />
-          <entry key="project.opened" value="5" />
+          <entry key="project.opened" value="6" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
           <entry key="pstat" value="1" />
-          <entry key="py" value="11" />
+          <entry key="py" value="12" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
           <entry key="Profiler Session" value="1" />
-          <entry key="Python" value="11" />
+          <entry key="Python" value="12" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="py" value="1529" />
+          <entry key="py" value="1538" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="Python" value="1529" />
+          <entry key="Python" value="1538" />
         </counts>
       </usages-collector>
     </session>
@@ -60,10 +61,22 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/WWUDo.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="351">
-              <caret line="85" column="13" lean-forward="true" selection-start-line="85" selection-start-column="13" selection-end-line="85" selection-end-column="13" />
+            <state relative-caret-position="154">
+              <caret line="30" column="18" selection-start-line="30" selection-start-column="18" selection-end-line="30" selection-end-column="18" />
               <folding>
-                <element signature="e#13#32#0" expanded="true" />
+                <element signature="e#0#19#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/UnitTest.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="368">
+              <caret line="21" column="8" selection-start-line="21" selection-start-column="8" selection-end-line="21" selection-end-column="8" />
+              <folding>
+                <element signature="e#0#27#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -129,6 +142,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -140,7 +154,6 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -169,7 +182,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python tests.Unittests in WWUDo.py">
+  <component name="RunManager" selected="Python.WWUDo">
     <configuration name="WWUDo" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="Stark_Industries" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -236,6 +249,21 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
+    <configuration name="Unittests for UnitTest.Unit_Test.test_View_Kid" type="tests" factoryName="Unittests" temporary="true" nameIsGenerated="true">
+      <module name="Stark_Industries" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="_new_additionalArguments" value="&quot;&quot;" />
+      <option name="_new_target" value="&quot;UnitTest.Unit_Test.test_View_Kid&quot;" />
+      <option name="_new_targetType" value="&quot;PYTHON&quot;" />
+      <method v="2" />
+    </configuration>
     <configuration name="Unittests for WWUDo.Unit_Test" type="tests" factoryName="Unittests" nameIsGenerated="true">
       <module name="Stark_Industries" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -248,21 +276,6 @@
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
       <option name="_new_additionalArguments" value="&quot;&quot;" />
       <option name="_new_target" value="&quot;WWUDo.Unit_Test&quot;" />
-      <option name="_new_targetType" value="&quot;PYTHON&quot;" />
-      <method v="2" />
-    </configuration>
-    <configuration name="Unittests for WWUDo.Unit_Test.test_View_Skip" type="tests" factoryName="Unittests" temporary="true" nameIsGenerated="true">
-      <module name="Stark_Industries" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="_new_additionalArguments" value="&quot;&quot;" />
-      <option name="_new_target" value="&quot;WWUDo.Unit_Test.test_View_Skip&quot;" />
       <option name="_new_targetType" value="&quot;PYTHON&quot;" />
       <method v="2" />
     </configuration>
@@ -298,19 +311,19 @@
     </configuration>
     <list>
       <item itemvalue="Python tests.Unittests for WWUDo.Unit_Test" />
-      <item itemvalue="Python tests.Unittests for WWUDo.Unit_Test.test_View_Skip" />
       <item itemvalue="Python.pro" />
       <item itemvalue="Python tests.Unittests in WWUDo.py" />
       <item itemvalue="Python tests.Unittests in UnitTest.py" />
       <item itemvalue="Python.WWUDo" />
+      <item itemvalue="Python tests.Unittests for UnitTest.Unit_Test.test_View_Kid" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Python tests.Unittests in WWUDo.py" />
-        <item itemvalue="Python tests.Unittests in UnitTest.py" />
         <item itemvalue="Python.WWUDo" />
+        <item itemvalue="Python tests.Unittests for UnitTest.Unit_Test.test_View_Kid" />
+        <item itemvalue="Python tests.Unittests in UnitTest.py" />
+        <item itemvalue="Python tests.Unittests in WWUDo.py" />
         <item itemvalue="Python.pro" />
-        <item itemvalue="Python tests.Unittests for WWUDo.Unit_Test.test_View_Skip" />
       </list>
     </recent_temporary>
   </component>
@@ -328,18 +341,6 @@
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="Unittests_in_UnitTest_py - 2020.01.13 at 22h 46m 12s.xml">
-      <configuration name="Unittests in UnitTest.py" configurationId="tests" />
-    </history-entry>
-    <history-entry file="Unittests_in_UnitTest_py - 2020.01.13 at 22h 51m 57s.xml">
-      <configuration name="Unittests in UnitTest.py" configurationId="tests" />
-    </history-entry>
-    <history-entry file="Unittests_in_UnitTest_py - 2020.01.13 at 22h 59m 43s.xml">
-      <configuration name="Unittests in UnitTest.py" configurationId="tests" />
-    </history-entry>
-    <history-entry file="Unittests_in_UnitTest_py - 2020.01.13 at 23h 07m 26s.xml">
-      <configuration name="Unittests in UnitTest.py" configurationId="tests" />
-    </history-entry>
     <history-entry file="Unittests_in_UnitTest_py - 2020.01.13 at 23h 20m 10s.xml">
       <configuration name="Unittests in UnitTest.py" configurationId="tests" />
     </history-entry>
@@ -358,6 +359,18 @@
     <history-entry file="Unittests_in_WWUDo_py - 2020.01.13 at 23h 35m 57s.xml">
       <configuration name="Unittests in WWUDo.py" configurationId="tests" />
     </history-entry>
+    <history-entry file="Unittests_for_UnitTest_Unit_Test_test_View_Kid - 2020.01.16 at 16h 47m 11s.xml">
+      <configuration name="Unittests for UnitTest.Unit_Test.test_View_Kid" configurationId="tests" />
+    </history-entry>
+    <history-entry file="Unittests_for_UnitTest_Unit_Test_test_View_Kid - 2020.01.16 at 16h 47m 51s.xml">
+      <configuration name="Unittests for UnitTest.Unit_Test.test_View_Kid" configurationId="tests" />
+    </history-entry>
+    <history-entry file="Unittests_for_UnitTest_Unit_Test_test_View_Kid - 2020.01.16 at 16h 48m 47s.xml">
+      <configuration name="Unittests for UnitTest.Unit_Test.test_View_Kid" configurationId="tests" />
+    </history-entry>
+    <history-entry file="Unittests_for_UnitTest_Unit_Test_test_View_Kid - 2020.01.16 at 16h 48m 52s.xml">
+      <configuration name="Unittests for UnitTest.Unit_Test.test_View_Kid" configurationId="tests" />
+    </history-entry>
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -372,12 +385,12 @@
     <frame x="0" y="0" width="1680" height="1050" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.13492064" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.13614164" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.7930403" weight="0.32959184" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.7924298" weight="0.32959184" />
       <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.4969475" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -385,15 +398,15 @@
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="8" show_stripe_button="false" />
       <window_info anchor="bottom" id="Database Changes" order="9" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.20695971" side_tool="true" visible="true" weight="0.32959184" />
+      <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.20757021" side_tool="true" visible="true" weight="0.32959184" />
       <window_info anchor="bottom" id="Terminal" order="11" sideWeight="0.4981685" weight="0.32959184" />
       <window_info anchor="bottom" id="Python Console" order="12" />
-      <window_info anchor="right" id="Coverage" side_tool="true" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="right" id="SciView" order="3" />
       <window_info anchor="right" id="Database" order="4" />
+      <window_info anchor="right" id="Coverage" order="5" side_tool="true" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -429,9 +442,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="132">
           <caret line="9" column="16" selection-start-line="9" selection-start-column="16" selection-end-line="9" selection-end-column="16" />
-          <folding>
-            <element signature="e#0#19#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -444,17 +454,20 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/UnitTest.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="66">
-          <caret line="3" column="35" selection-start-line="3" selection-start-column="35" selection-end-line="3" selection-end-column="35" />
+        <state relative-caret-position="368">
+          <caret line="21" column="8" selection-start-line="21" selection-start-column="8" selection-end-line="21" selection-end-column="8" />
+          <folding>
+            <element signature="e#0#27#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/WWUDo.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="351">
-          <caret line="85" column="13" lean-forward="true" selection-start-line="85" selection-start-column="13" selection-end-line="85" selection-end-column="13" />
+        <state relative-caret-position="154">
+          <caret line="30" column="18" selection-start-line="30" selection-start-column="18" selection-end-line="30" selection-end-column="18" />
           <folding>
-            <element signature="e#13#32#0" expanded="true" />
+            <element signature="e#0#19#0" expanded="true" />
           </folding>
         </state>
       </provider>
