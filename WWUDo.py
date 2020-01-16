@@ -35,7 +35,6 @@ def View_Skip():  # Get kid id and print the question from last game if skip fro
     else:
         return 1
 
-
 # --------------------------------------------------
 
 def Add_Kid(parent_id):  # Get kid and parent id and write the parent id in "Parent" in "Player_db"
@@ -203,7 +202,7 @@ def Reset_Player():
     players = pd.read_excel('Player_db.xlsx')
     if not (id in players.ID.values):
         print('ID not found')
-        return
+        return 1
     # reset data in players data base
     index = players.index[players['ID'] == id].tolist()[0]
     players.at[index, 'Login_count'] = 0
@@ -214,6 +213,7 @@ def Reset_Player():
     empty_db = pd.DataFrame(columns=['Date', 'Grade'])
     empty_db.to_excel(id_db)
     print('Players data was Reset')
+    return 0
 
 
 # -----------------------------------
@@ -226,7 +226,9 @@ def login_report(id):
     for kid in playerDB['ID']:
         if int(kid) == int(id):
             print("The player last login was at:", playerDB['Last_Login'][index])
+            return 0
         index += 1
+    return 1
 
 
 def Print_Last_Mistake(id):
@@ -258,15 +260,15 @@ def Print_Last_Mistake(id):
                 break
             i += 1
 
-
 def Print_Last_Grade(id):
     playerDB = pd.read_excel('Player_db.xlsx')
     index = 0
     for kid in playerDB['ID']:
         if int(kid) == int(id):
             print(playerDB['Last grade'][index])
+            return 0
         index += 1
-
+    return 1
 
 def View_All(user_type):
     """View all the user type"""
@@ -283,7 +285,7 @@ def View_All(user_type):
 def instructions():
     file = open("instruction1.txt", 'r')
     print(file.read())
-    return 1
+
 
 
 def Game(category, id):
