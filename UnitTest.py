@@ -4,6 +4,10 @@ from WWUDo import View_Kid
 from WWUDo import Print_Login_Count
 from WWUDo import Add_Question
 from WWUDo import Delete_User
+from WWUDo import Reset_Player
+from WWUDo import Print_Last_Grade
+from WWUDo import login_report
+
 
 import unittest
 class Unit_Test(unittest.TestCase):
@@ -21,6 +25,15 @@ class Unit_Test(unittest.TestCase):
         self.assertEqual(Add_Question(), 0)
     def test_Delete_User(self):
         self.assertEqual(Delete_User(), 0)
+    def test_Reset_Player(self):
+        self.assertEqual(Reset_Player(), 0)
+    def test_Print_Last_Grade(self):
+        id = 8415
+        self.assertEqual(Print_Last_Grade(id), 0)
+    def test_Print_login_report(self):
+        id = 8415
+        self.assertEqual(login_report(id), 0)
+
         
 
 '''if __name__ == '__main__':
