@@ -285,6 +285,35 @@ def instructions():
     print(file.read())
 
 
+def Calculate_Grade(id):
+    """ Calculate the kid (id) last game grade """
+    playerDB = pd.read_excel('Player_db.xlsx')
+    QuestionsDB = pd.read_excel('Question_db_new.xlsx')
+    index , i , score = 0 , 0 , 0
+    for kid in playerDB['ID']:
+        if kid == id:
+            index = i
+            Q , A = 'Q' , 'A'
+            #Found the kid's id
+            for j in range(1,6):
+                Q , A = 'Q' , 'A'
+                Q = Q + str(j)
+                A = A + str(j)
+                Qindex = 0
+                for QST in QuestionsDB['Question']:
+                    #playerDB[Q][index]
+                    if QST == playerDB[Q][index]:
+                        #This is the question index
+                        if playerDB[A][index] == QuestionsDB['Right Answer'][Qindex]:
+                        #Correct answer
+                            score += 20
+                    Qindex += 1
+            gradeFile = pd.read_excel('{0}.xlsx'.format(id))
+            NewGrade = gradeFile.append( 
+                    {'Grade': score, 'Date': time.asctime(time.localtime(time.time())) }, ignore_index=True)
+            NewGrade.to_excel("{0}.xlsx".format(id))
+        i += 1
+    return
 
 def Game(category, id):
     Q_and_A_write = load_workbook(filename="Player_db.xlsx")
