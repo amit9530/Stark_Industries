@@ -15,8 +15,7 @@ from random import sample
 
 # Elior Function's
 # --------------------------------------------------
-def View_Skip():  # Get kid id and print the question from last game if skip from "User_db"
-    kid_id = int(input("Please enter kid id"))
+def View_Skip(kid_id):  # print the question from last game if skip from "User_db"
     Player_db = pd.read_excel('Player_db.xlsx')
     kid = Player_db.loc[Player_db.ID == kid_id]
     for index, rows in kid.iterrows():
@@ -54,11 +53,10 @@ def Add_Kid(parent_id):  # Get kid and parent id and write the parent id in "Par
 
 # --------------------------------------------------
 
-def View_Kid():  # Get parent id and print all the kids that belong to the parent id from "Player_db"
+def View_Kid(parent_id):  # Get parent id and print all the kids that belong to the parent id from "Player_db"
     Player_db = pd.read_excel('Player_db.xlsx')
-    parent_id = int(input("Please enter parent id"))
     kids = Player_db.loc[Player_db.Parent == parent_id]
-    print(kids['ID'])
+    print(int(kids['ID']))
     # Unit_Test
     parent = Player_db.loc[Player_db.Parent == parent_id]
     if parent_id == int(parent['Parent']):
@@ -71,9 +69,9 @@ def View_Kid():  # Get parent id and print all the kids that belong to the paren
 
 def Print_Login_Count():  # Get kid id and print login count from "Player_db"
     Player_db = pd.read_excel('Player_db.xlsx')
-    kid_id = int(input("Please enter kid id"))
+    kid_id = int(input("Please enter kid id: "))
     kid = Player_db.loc[Player_db.ID == kid_id]
-    print(kid['Login_count'])
+    print(int(kid['Login_count']))
     if kid_id == (int((kid['ID']))):
         return 0
     else:
@@ -276,7 +274,7 @@ def View_All(user_type):
     UsersDB = pd.read_excel('Users_db.xlsx')
     index = 0
     for user in UsersDB['ID']:
-        types = UsersDB['User type'][index]
+        types = int(UsersDB['Type'][index])
         if types == user_type:
             print(user)
         index = index + 1
@@ -476,6 +474,7 @@ def Print_Last_Game(id):
 
 
 def Player_Menu(id):
+    print()
     print("Choose an option: ")
     print("1- Play game \n2- Show game instructions \n3- Show grades")
     print("4- Show last played game \n5- Show last game skipped question \n6- Show the latest grade")
@@ -495,19 +494,21 @@ def Player_Menu(id):
         Print_Last_Game(id)
         Player_Menu(id)
     if choice == 5:
-        View_Skip()
+        View_Skip(id)
         Player_Menu(id)
     if choice == 6:
-        Print_Last_Grade()
+        Print_Last_Grade(id)
         Player_Menu(id)
     if choice == 7:
         Login_And_SignIn()
+
 
 
 # --------------------------------------------------
 
 
 def Parent_Menu(id):
+    print()
     print("Choose an option: ")
     print("1- Add kid \n2- View kid\n3- Show last grade")
     print("4- Show the kid's login count \n5- Show last game skipped question \n6- Play example game")
@@ -519,39 +520,42 @@ def Parent_Menu(id):
         Add_Kid(id)
         Parent_Menu(id)
     if choice == 2:
-        View_Kid()
+        View_Kid(id)
         Parent_Menu(id)
     if choice == 3:
-        Id = int(input('Please enter child ID'))
+        Id = int(input('Please enter child ID: '))
         Print_Grades(Id)
         Parent_Menu(id)
     if choice == 4:
         Print_Login_Count()
         Parent_Menu(id)
     if choice == 5:
-        View_Skip()
+        ID=int(input('Please enter child ID: '))
+        View_Skip(ID)
         Parent_Menu(id)
     if choice == 6:
         Example_Game()
         Parent_Menu(id)
     if choice == 7:
-        Id = int(input('Please enter child ID'))
+        Id = int(input('Please enter child ID: '))
         Print_Last_Game(Id)
         Parent_Menu(id)
     if choice == 8:
-        Print_Last_Mistake()
+        Id = int(input('Please enter child ID: '))
+        Print_Last_Mistake(Id)
         Parent_Menu(id)
     if choice == 9:
-        login_report()
+        Id = int(input('Please enter child ID: '))
+        login_report(Id)
         Parent_Menu(id)
     if choice == 10:
         Login_And_SignIn()
-
 
 # --------------------------------------------------
 
 
 def Professional_Menu(id):
+    print()
     print('Choose an option: ')
     print("1- Reports\n2- Watch child's grades\n3- Watch child's last games skipped questions\n"
           "4- Reset players data\n5- Add a question\n6- Delete a question")
@@ -567,11 +571,11 @@ def Professional_Menu(id):
             View_All(2)
             Professional_Menu(id)
     if choice == 2:
-        Id = input("Please enter child's ID")
+        Id = input("Please enter child's ID: ")
         Print_Grades(Id)
         Professional_Menu(id)
     if choice == 3:
-        Id = input("Please enter child's ID")
+        Id = input("Please enter child's ID: ")
         View_Skip(Id)
         Professional_Menu(id)
     if choice == 4:
@@ -584,7 +588,7 @@ def Professional_Menu(id):
         Delete_Question()
         Professional_Menu(id)
     if choice == 7:
-        Delete_Question()
+        Most_Mistakes()
         Professional_Menu(id)
     if choice == 8:
         Delete_User()
@@ -708,3 +712,6 @@ def Login_And_SignIn():
             print("ID not exist in the system")
 
 # Login_And_SignIn()
+#Player_Menu(123456789)
+#Parent_Menu(111111111)  
+Professional_Menu(456789123)  
