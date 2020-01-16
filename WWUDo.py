@@ -571,11 +571,11 @@ def Professional_Menu(id):
             View_All(2)
             Professional_Menu(id)
     if choice == 2:
-        Id = input("Please enter child's ID: ")
+        Id = int(input("Please enter child's ID: "))
         Print_Grades(Id)
         Professional_Menu(id)
     if choice == 3:
-        Id = input("Please enter child's ID: ")
+        Id = int(input("Please enter child's ID: "))
         View_Skip(Id)
         Professional_Menu(id)
     if choice == 4:
