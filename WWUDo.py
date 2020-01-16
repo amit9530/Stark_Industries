@@ -102,6 +102,7 @@ def Example_Game():  # play game for example to Understand how to play the game
 
 
 # -----------------------------------
+    
 def Print_Grades(id):
     """ function gets id of player and prints all grades from the player's data base"""
     player_db = '{0}.xlsx'.format(id)
@@ -121,7 +122,6 @@ def Most_Mistakes():
     max_index = (questions_db.index[questions_db['Mistakes'] == max_mistakes].tolist())[0]
     print('The question with the most mistakes is {0}'.format(questions_db.loc[max_index]['Question']))
     print('This question has been answered wrong {0} times.'.format(max_mistakes))
-    return 1
 
 
 def Delete_User():
@@ -142,7 +142,7 @@ def Delete_User():
             new_users = users.drop(user_index)
             new_users.to_excel("Users_db.xlsx")
             print('User deleted!')
-            return
+            return 0
     # if the id wasn't found in any data base
     print('Error - ID not found')
     return 1
@@ -171,7 +171,6 @@ def Delete_Question():
     new_questions = questions.drop(q_list[q_to_delete - 1])
     new_questions.to_excel("Question_db_new.xlsx")
     print('Question deleted!')
-    return 1
 
 
 def Add_Question():
@@ -193,6 +192,8 @@ def Add_Question():
          'Mistakes': 0, 'Right Answer': right_answer}, ignore_index=True)
     new_questions.to_excel("Question_db_new.xlsx")
     print('Question added!')
+    if ques in new_questions.Question.values:
+        return 0
     return 1
 
 
@@ -213,7 +214,6 @@ def Reset_Player():
     empty_db = pd.DataFrame(columns=['Date', 'Grade'])
     empty_db.to_excel(id_db)
     print('Players data was Reset')
-    return 1
 
 
 # -----------------------------------
@@ -407,7 +407,7 @@ def Game(category, id):
 #        Q_Num += 1
 
 
-Game(2, 23)
+#Game(2, 23)
 
 #for i in range(1,6):
 #    print(i)
