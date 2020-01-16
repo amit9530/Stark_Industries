@@ -291,48 +291,126 @@ def Game(category, id):
     sheet = Q_and_A_write.active
     Answer_read = pd.read_excel("Player_db.xlsx", "Sheet1")
     Q_and_A_read = pd.read_excel("Question_db_new.xlsx", "Sheet1")
+
+    # Generate random questions index for each category
     if category == 1:
         num = 0
-        i = 0
-        Q_I_Arr = []
+        Id_Index = 0
+        Q_Index_Arr = []
         for cat in Q_and_A_read['Category']:
             if cat == 'School':
                 num += 1
-                Q_I_Arr.append(Q_and_A_read['Index'][i])
-            i += 1
-        Random_Arr = [sample(range(1, num + 1), 5)]
-        print("the num is: ", num)
-        print("the index arr is: ", Q_I_Arr)
+                Q_Index_Arr.append(Q_and_A_read['Index'][Id_Index])
+            Id_Index += 1
+        Q_Random_Index_Arr = sample(Q_Index_Arr, 5)
+        #print("the num is: ", num)
+        #print("the index arr is: ", Q_Index_Arr)
+        #print("the arr is: ", Q_Random_Index_Arr)
     elif category == 2:
         num = 0
-        i = 0
-        Q_I_Arr = []
+        Id_Index = 0
+        Q_Index_Arr = []
         for cat in Q_and_A_read['Category']:
             if cat == 'Home':
                 num += 1
-                Q_I_Arr.append(Q_and_A_read['Index'][i])
-            i += 1
-        Random_Arr = [sample(range(1, num + 1), 5)]
+                Q_Index_Arr.append(Q_and_A_read['Index'][Id_Index])
+            Id_Index += 1
+        Q_Random_Index_Arr = sample(Q_Index_Arr, 5)
+        #print("the number of questions is: ", num)
+        #print("the Q_Index_Arr arr is: ", Q_Index_Arr)
+        #print("the Random_Arr is: ", Q_Random_Index_Arr)
     elif category == 3:
         num = 0
-        i = 0
-        Q_I_Arr = []
+        Id_Index = 0
+        Q_Index_Arr = []
         for cat in Q_and_A_read['Category']:
-            if cat == 'Public Place':
+            if cat == 'Public Places':
                 num += 1
-                Q_I_Arr.append(Q_and_A_read['Index'][i])
-            i += 1
-        Random_Arr = [sample(range(1, num + 1), 5)]
+                Q_Index_Arr.append(Q_and_A_read['Index'][Id_Index])
+            Id_Index += 1
+        Q_Random_Index_Arr = sample(Q_Index_Arr, 5)
+        #print("the num is: ", num)
+        #print("the index arr is: ", Q_Index_Arr)
+        #print("the arr is: ", Q_Random_Index_Arr)
     elif category == 4:
         num = 0
         for cat in Q_and_A_read['Category']:
             num += 1
-        Random_Arr = [sample(range(1, num + 1), 5)]
-        print("the num is: ", num)
-        print("the arr is: ", Random_Arr)
+        Q_Random_Index_Arr = sample(range(1, num + 1), 5)
+        #print("the num is: ", num)
+        #print("the arr is: ", Q_Random_Index_Arr)
+
+    Id_Index = 0
+    Ind = 0
+    for Id in Answer_read['ID']:
+        if int(id) == int(Id):
+            Id_Index = Ind
+        Ind += 1
+    #print("id index is: ", Id_Index)
+    Q_Arr = []
+    new_Q=[]
+    print(Q_Random_Index_Arr)
+    for i in range(0, 5):
+        x = Q_Random_Index_Arr[i]
+        print(x)
+        new_Q.append(x)
+
+    Q_Arr.append(Q_and_A_read['Question'][Q_Random_Index_Arr[0]-1])
+    print("Q num 1: ",Q_Arr[0])
+    Q_Arr.append(Q_and_A_read['Question'][Q_Random_Index_Arr[1]-1])
+    print("Q num 2: ", Q_Arr[1])
+    Q_Arr.append(Q_and_A_read['Question'][Q_Random_Index_Arr[2]-1])
+    print("Q num 3: ", Q_Arr[2])
+    Q_Arr.append(Q_and_A_read['Question'][Q_Random_Index_Arr[3]-1])
+    print("Q num 4: ", Q_Arr[3])
+    Q_Arr.append(Q_and_A_read['Question'][Q_Random_Index_Arr[4]-1])
+    print("Q num 5: ", Q_Arr[4])
+    """
+    for i in range(0,5):
+        print(Q_Random_Index_Arr[i])
+    for i in range(0, 5):
+        new_Q.append(Q_Random_Index_Arr.pop)
+        print("test1: ", Q_Random_Index_Arr[i])
+    for i in range (0,5):
+        print("test 2: ",new_Q[i])
+    for i in range(0, 2):
+        Q_Arr.append(Q_and_A_read['Question'][Q_Random_Index_Arr[i]])
+    for i in range(0, 2):
+        print(Q_Arr[i])
+        print(i)
+    """
+    """
+    a = str(Q_and_A_read['Question'][Q_Random_Index_Arr[0]])
+    b = str(Q_and_A_read['Question'][Q_Random_Index_Arr[1]])
+    c = str(Q_and_A_read['Question'][Q_Random_Index_Arr[2]])
+    d = str(Q_and_A_read['Question'][Q_Random_Index_Arr[3]])
+    e = str(Q_and_A_read['Question'][Q_Random_Index_Arr[4]])
+    Q1_Cell = sheet.cell(row=Id_Index+2, column=5)
+    Q1_Cell.value = a
+    Q2_Cell = sheet.cell(row=Id_Index+2, column=7)
+    Q2_Cell.value = b
+    Q3_Cell = sheet.cell(row=Id_Index+2, column=9)
+    Q3_Cell.value = c
+    Q4_Cell = sheet.cell(row=Id_Index+2, column=11)
+    Q4_Cell.value = d
+    Q5_Cell = sheet.cell(row=Id_Index+2, column=13)
+    Q5_Cell.value = e
+    Q_and_A_write.save(filename="Player_db.xlsx")
+    """
+
+#    flag = True
+#    Q_Num = 1
+#    while flag:
+#        if Q_Num == 5:
+#            Q_Num = 1
+#
+#        Q_Num += 1
 
 
-Game(4, 1)
+Game(2, 23)
+
+#for i in range(1,6):
+#    print(i)
 
 
 def Choose_Category(id):
@@ -562,7 +640,6 @@ def Login_And_SignIn():
                 Line = i
             Line = Line + 1
             tempLine = Line
-            print("the line is: ", Line)
             CurDate = time.asctime(time.localtime(time.time()))
             NumCell = Login_c.cell(row=Line, column=1)
             NumCell.value = tempLine - 2
@@ -610,7 +687,6 @@ def Login_And_SignIn():
                                 for cell in row:
                                     if cell.value == username:
                                         LINE = k
-                            print(LINE)
                             CurDate = time.asctime(time.localtime(time.time()))
                             DateCell = Login_c.cell(row=LINE, column=3)
                             DateCell.value = CurDate
