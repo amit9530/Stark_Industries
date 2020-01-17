@@ -34,6 +34,7 @@ def View_Skip(kid_id):  # print the question from last game if skip from "User_d
     else:
         return 1
 
+
 # --------------------------------------------------
 
 def Add_Kid(parent_id):  # Get kid and parent id and write the parent id in "Parent" in "Player_db"
@@ -99,7 +100,7 @@ def Example_Game():  # play game for example to Understand how to play the game
 
 
 # -----------------------------------
-    
+
 def Print_Grades(id):
     """ function gets id of player and prints all grades from the player's data base"""
     player_db = '{0}.xlsx'.format(id)
@@ -258,6 +259,7 @@ def Print_Last_Mistake(id):
                 break
             i += 1
 
+
 def Print_Last_Grade(id):
     playerDB = pd.read_excel('Player_db.xlsx')
     index = 0
@@ -267,6 +269,7 @@ def Print_Last_Grade(id):
             return 0
         index += 1
     return 1
+
 
 def View_All(user_type):
     """View all the user type"""
@@ -289,39 +292,41 @@ def Calculate_Grade(id):
     """ Calculate the kid (id) last game grade """
     playerDB = pd.read_excel('Player_db.xlsx')
     QuestionsDB = pd.read_excel('Question_db_new.xlsx')
-    index , i , score = 0 , 0 , 0
+    index, i, score = 0, 0, 0
     for kid in playerDB['ID']:
         if kid == id:
             index = i
-            Q , A = 'Q' , 'A'
-            #Found the kid's id
-            for j in range(1,6):
-                Q , A = 'Q' , 'A'
+            Q, A = 'Q', 'A'
+            # Found the kid's id
+            for j in range(1, 6):
+                Q, A = 'Q', 'A'
                 Q = Q + str(j)
                 A = A + str(j)
                 Qindex = 0
                 for QST in QuestionsDB['Question']:
-                    #playerDB[Q][index]
+                    # playerDB[Q][index]
                     if QST == playerDB[Q][index]:
-                        #This is the question index
+                        # This is the question index
                         if playerDB[A][index] == QuestionsDB['Right Answer'][Qindex]:
-                        #Correct answer
+                            # Correct answer
                             score += 20
                     Qindex += 1
             gradeFile = pd.read_excel('{0}.xlsx'.format(id))
-            NewGrade = gradeFile.append( 
-                    {'Grade': score, 'Date': time.asctime(time.localtime(time.time())) }, ignore_index=True)
+            NewGrade = gradeFile.append(
+                {'Grade': score, 'Date': time.asctime(time.localtime(time.time()))}, ignore_index=True)
             NewGrade.to_excel("{0}.xlsx".format(id))
         i += 1
     return
 
+
 def Game(category, id):
     Q_and_A_write = load_workbook(filename="Player_db.xlsx")
     sheet = Q_and_A_write.active
-    Answer_read = pd.read_excel("Player_db.xlsx", "Sheet1")
+    Answer_write = pd.read_excel("Player_db.xlsx", "Sheet1")
     Q_and_A_read = pd.read_excel("Question_db_new.xlsx", "Sheet1")
 
     # Generate random questions index for each category
+    # school category
     if category == 1:
         num = 0
         Id_Index = 0
@@ -332,9 +337,8 @@ def Game(category, id):
                 Q_Index_Arr.append(Q_and_A_read['Index'][Id_Index])
             Id_Index += 1
         Q_Random_Index_Arr = sample(Q_Index_Arr, 5)
-        #print("the num is: ", num)
-        #print("the index arr is: ", Q_Index_Arr)
-        #print("the arr is: ", Q_Random_Index_Arr)
+
+    # home category
     elif category == 2:
         num = 0
         Id_Index = 0
@@ -345,9 +349,8 @@ def Game(category, id):
                 Q_Index_Arr.append(Q_and_A_read['Index'][Id_Index])
             Id_Index += 1
         Q_Random_Index_Arr = sample(Q_Index_Arr, 5)
-        #print("the number of questions is: ", num)
-        #print("the Q_Index_Arr arr is: ", Q_Index_Arr)
-        #print("the Random_Arr is: ", Q_Random_Index_Arr)
+
+    # public places category
     elif category == 3:
         num = 0
         Id_Index = 0
@@ -358,88 +361,160 @@ def Game(category, id):
                 Q_Index_Arr.append(Q_and_A_read['Index'][Id_Index])
             Id_Index += 1
         Q_Random_Index_Arr = sample(Q_Index_Arr, 5)
-        #print("the num is: ", num)
-        #print("the index arr is: ", Q_Index_Arr)
-        #print("the arr is: ", Q_Random_Index_Arr)
+
+    # from all the category's
     elif category == 4:
         num = 0
         for cat in Q_and_A_read['Category']:
             num += 1
         Q_Random_Index_Arr = sample(range(1, num + 1), 5)
-        #print("the num is: ", num)
-        #print("the arr is: ", Q_Random_Index_Arr)
 
+    # give back the line number for the player id
     Id_Index = 0
     Ind = 0
-    for Id in Answer_read['ID']:
+    for Id in Answer_write['ID']:
         if int(id) == int(Id):
             Id_Index = Ind
         Ind += 1
-    #print("id index is: ", Id_Index)
+
     Q_Arr = []
-    new_Q=[]
-    print(Q_Random_Index_Arr)
+    new_Q = []
+    A_Arr = []
+    # print(Q_Random_Index_Arr)
     for i in range(0, 5):
         x = Q_Random_Index_Arr[i]
-        print(x)
+        # print(x)
         new_Q.append(x)
 
-    Q_Arr.append(Q_and_A_read['Question'][Q_Random_Index_Arr[0]-1])
-    print("Q num 1: ",Q_Arr[0])
-    Q_Arr.append(Q_and_A_read['Question'][Q_Random_Index_Arr[1]-1])
-    print("Q num 2: ", Q_Arr[1])
-    Q_Arr.append(Q_and_A_read['Question'][Q_Random_Index_Arr[2]-1])
-    print("Q num 3: ", Q_Arr[2])
-    Q_Arr.append(Q_and_A_read['Question'][Q_Random_Index_Arr[3]-1])
-    print("Q num 4: ", Q_Arr[3])
-    Q_Arr.append(Q_and_A_read['Question'][Q_Random_Index_Arr[4]-1])
-    print("Q num 5: ", Q_Arr[4])
-    """
-    for i in range(0,5):
-        print(Q_Random_Index_Arr[i])
-    for i in range(0, 5):
-        new_Q.append(Q_Random_Index_Arr.pop)
-        print("test1: ", Q_Random_Index_Arr[i])
-    for i in range (0,5):
-        print("test 2: ",new_Q[i])
-    for i in range(0, 2):
-        Q_Arr.append(Q_and_A_read['Question'][Q_Random_Index_Arr[i]])
-    for i in range(0, 2):
-        print(Q_Arr[i])
-        print(i)
-    """
-    """
-    a = str(Q_and_A_read['Question'][Q_Random_Index_Arr[0]])
-    b = str(Q_and_A_read['Question'][Q_Random_Index_Arr[1]])
-    c = str(Q_and_A_read['Question'][Q_Random_Index_Arr[2]])
-    d = str(Q_and_A_read['Question'][Q_Random_Index_Arr[3]])
-    e = str(Q_and_A_read['Question'][Q_Random_Index_Arr[4]])
-    Q1_Cell = sheet.cell(row=Id_Index+2, column=5)
-    Q1_Cell.value = a
-    Q2_Cell = sheet.cell(row=Id_Index+2, column=7)
-    Q2_Cell.value = b
-    Q3_Cell = sheet.cell(row=Id_Index+2, column=9)
-    Q3_Cell.value = c
-    Q4_Cell = sheet.cell(row=Id_Index+2, column=11)
-    Q4_Cell.value = d
-    Q5_Cell = sheet.cell(row=Id_Index+2, column=13)
-    Q5_Cell.value = e
+    # enter and print the questions to the Q_Arr
+    Q_Arr.append(Q_and_A_read['Question'][Q_Random_Index_Arr[0] - 1])
+    # print("Q num 1: ", Q_Arr[0])
+    Q_Arr.append(Q_and_A_read['Question'][Q_Random_Index_Arr[1] - 1])
+    # print("Q num 2: ", Q_Arr[1])
+    Q_Arr.append(Q_and_A_read['Question'][Q_Random_Index_Arr[2] - 1])
+    # print("Q num 3: ", Q_Arr[2])
+    Q_Arr.append(Q_and_A_read['Question'][Q_Random_Index_Arr[3] - 1])
+    # print("Q num 4: ", Q_Arr[3])
+    Q_Arr.append(Q_and_A_read['Question'][Q_Random_Index_Arr[4] - 1])
+    # print("Q num 5: ", Q_Arr[4])
+
+    # enter and print the answers to the A_Arr
+    for answer in range(0, 5):
+        A_Arr.append(Q_and_A_read['Answer_A'][Q_Random_Index_Arr[answer] - 1])
+        # print("A num ", (answer * 3) + 1, ": ", A_Arr[answer * 3])
+        A_Arr.append(Q_and_A_read['Answer_B'][Q_Random_Index_Arr[answer] - 1])
+        # print("A num ", (answer * 3) + 2, ": ", A_Arr[(answer * 3) + 1])
+        A_Arr.append(Q_and_A_read['Answer_C'][Q_Random_Index_Arr[answer] - 1])
+        # print("A num ", (answer * 3) + 3, ": ", A_Arr[(answer * 3) + 2])
+        # print(answer)
+
+    # give back the column number for column Q1
+    In_col = 0
+    for col in Answer_write:
+        if 'Q1' == str(col):
+            Id_In = In_col
+        In_col += 1
+    # print("col is: ", Id_In)
+
+    # save the questions in the player db and the answers as NaN
+    Q1_Cell = sheet.cell(row=Id_Index + 2, column=Id_In + 1)
+    Q1_Cell.value = Q_Arr[0]
+    Q2_Cell = sheet.cell(row=Id_Index + 2, column=Id_In + 3)
+    Q2_Cell.value = Q_Arr[1]
+    Q3_Cell = sheet.cell(row=Id_Index + 2, column=Id_In + 5)
+    Q3_Cell.value = Q_Arr[2]
+    Q4_Cell = sheet.cell(row=Id_Index + 2, column=Id_In + 7)
+    Q4_Cell.value = Q_Arr[3]
+    Q5_Cell = sheet.cell(row=Id_Index + 2, column=Id_In + 9)
+    Q5_Cell.value = Q_Arr[4]
+    A1_Cell = sheet.cell(row=Id_Index + 2, column=Id_In + 2)
+    A1_Cell.value = 'NaN'
+    A2_Cell = sheet.cell(row=Id_Index + 2, column=Id_In + 4)
+    A2_Cell.value = 'NaN'
+    A3_Cell = sheet.cell(row=Id_Index + 2, column=Id_In + 6)
+    A3_Cell.value = 'NaN'
+    A4_Cell = sheet.cell(row=Id_Index + 2, column=Id_In + 8)
+    A4_Cell.value = 'NaN'
+    A5_Cell = sheet.cell(row=Id_Index + 2, column=Id_In + 10)
+    A5_Cell.value = 'NaN'
     Q_and_A_write.save(filename="Player_db.xlsx")
-    """
 
-#    flag = True
-#    Q_Num = 1
-#    while flag:
-#        if Q_Num == 5:
-#            Q_Num = 1
-#
-#        Q_Num += 1
+    # a while function for the game
+    flag = True
+    Q_Num = 1
+    while flag:
+        if Q_Num == 6:
+            Q_Num = 1
+        if Q_Num == 0:
+            Q_Num = 5
+        if Q_Num == 1:
+            arg = 2
+        if Q_Num == 2:
+            arg = 4
+        if Q_Num == 3:
+            arg = 6
+        if Q_Num == 4:
+            arg = 8
+        if Q_Num == 5:
+            arg = 10
+        print("\nQuestion number ", Q_Num, ": ", Q_Arr[Q_Num - 1])
+        print("\nAnswer number 1: ", A_Arr[(Q_Num - 1) * 3])
+        print("Answer number 2: ", A_Arr[((Q_Num - 1) * 3) + 1])
+        print("Answer number 3: ", A_Arr[((Q_Num - 1) * 3) + 2])
+        check_if_answer = sheet.cell(row=Id_Index + 2, column=Id_In + arg)
+        if check_if_answer.value != 'NaN':
+            print("\nYou hve answer to this question: ", check_if_answer.value)
+        ans = str(input("\nPress 1 to choose answer number 1 \nPress 2 to choose answer number 2 \nPress 3 to choose "
+                        "answer number 3 \nPress 4 to skip the question \nPress 5 to move to the next question game "
+                        "\nPress 6 to move to the previous question \nPress 7 to end a finished or an unfinished \n"))
+        while ans != '1' and ans != '2' and ans != '3' and ans != '4' and ans != '5' and ans != '6' and ans != '7':
+            ans = str(input("Wrong input, try again: "))
+
+        # let the player answer a question
+        if ans == '1':
+            Answer_Cell = sheet.cell(row=Id_Index + 2, column=Id_In + arg)
+            Answer_Cell.value = A_Arr[(Q_Num - 1) * 3]
+            Q_and_A_write.save(filename="Player_db.xlsx")
+            Q_Num += 1
+
+        if ans == '2':
+            Answer_Cell = sheet.cell(row=Id_Index + 2, column=Id_In + arg)
+            Answer_Cell.value = A_Arr[((Q_Num - 1) * 3) + 1]
+            Q_and_A_write.save(filename="Player_db.xlsx")
+            Q_Num += 1
+
+        if ans == '3':
+            Answer_Cell = sheet.cell(row=Id_Index + 2, column=Id_In + arg)
+            Answer_Cell.value = A_Arr[((Q_Num - 1) * 3) + 2]
+            Q_and_A_write.save(filename="Player_db.xlsx")
+            Q_Num += 1
+
+        if ans == '4':
+            Answer_Cell = sheet.cell(row=Id_Index + 2, column=Id_In + arg)
+            Answer_Cell.value = 's'
+            Q_and_A_write.save(filename="Player_db.xlsx")
+            Q_Num += 1
+
+        if ans == '5':
+            Q_Num += 1
+
+        if ans == '6':
+            Q_Num -= 1
+
+        if ans == '7':
+            Calculate_Grade(id)
+            see = str(input("\nto see the grade press 1 \nto exit the game back to the menu press 2\n"))
+            while see != '1' and see != '2':
+                see = str(input("Wrong input, try again: "))
+            if see == '1':
+                Grade_Cell = sheet.cell(row=Id_Index + 2, column=Id_In + 11)
+                print(Grade_Cell.value)
+                break
+            elif see == '2':
+                break
 
 
-#Game(2, 23)
-
-#for i in range(1,6):
-#    print(i)
+# Game(3, 24)
 
 
 def Choose_Category(id):
@@ -448,14 +523,14 @@ def Choose_Category(id):
     print('2- Home')
     print('3- Public places')
     print('4- Random questions')
-    choice = input()
+    choice = int(input())
     while choice != 1 and choice != 2 and choice != 3 and choice != 4:
         print('Wrong input, try again')
         print('1- School')
         print('2- Home')
         print('3- Public places')
         print('4- Random questions')
-        choice = input()
+        choice = int(input())
     Game(choice, id)
 
 
@@ -529,8 +604,7 @@ def Player_Menu(id):
         Print_Last_Grade(id)
         Player_Menu(id)
     if choice == 7:
-        Login_And_SignIn()
-
+        Login_And_SignUp()
 
 
 # --------------------------------------------------
@@ -559,7 +633,7 @@ def Parent_Menu(id):
         Print_Login_Count()
         Parent_Menu(id)
     if choice == 5:
-        ID=int(input('Please enter child ID: '))
+        ID = int(input('Please enter child ID: '))
         View_Skip(ID)
         Parent_Menu(id)
     if choice == 6:
@@ -578,7 +652,8 @@ def Parent_Menu(id):
         login_report(Id)
         Parent_Menu(id)
     if choice == 10:
-        Login_And_SignIn()
+        Login_And_SignUp()
+
 
 # --------------------------------------------------
 
@@ -623,14 +698,14 @@ def Professional_Menu(id):
         Delete_User()
         Professional_Menu(id)
     if choice == 9:
-        Login_And_SignIn()
+        Login_And_SignUp()
 
 
 # --------------------------------------------------
 
 
 # login and sign-up function
-def Login_And_SignIn():
+def Login_And_SignUp():
     write = load_workbook(filename="Users_db.xlsx")
     sheet = write.active
     Users_db = pd.read_excel("Users_db.xlsx", "Sheet1")
@@ -652,10 +727,10 @@ def Login_And_SignIn():
                 if username == Id:
                     flag = True
             if not flag:
-                IdCell = sheet.cell(row=count + 1, column=1)
+                IdCell = sheet.cell(row=count + 1, column=7)
                 IdCell.value = username
                 password = int(input("Enter a password: "))
-                PasswordCell = sheet.cell(row=count + 1, column=2)
+                PasswordCell = sheet.cell(row=count + 1, column=8)
                 PasswordCell.value = password
                 print("Type 1 for Player")
                 print("Type 2 for Parent")
@@ -663,7 +738,7 @@ def Login_And_SignIn():
                 usertype = int(input("Enter the user type: "))
                 while usertype != 1 and usertype != 2 and usertype != 3:
                     usertype = int(input("Wrong input, try again: "))
-                TypeCell = sheet.cell(row=count + 1, column=3)
+                TypeCell = sheet.cell(row=count + 1, column=9)
                 TypeCell.value = usertype
                 break
             print("ID already exist")
@@ -676,13 +751,13 @@ def Login_And_SignIn():
             Line = Line + 1
             tempLine = Line
             CurDate = time.asctime(time.localtime(time.time()))
-            NumCell = Login_c.cell(row=Line, column=1)
+            NumCell = Login_c.cell(row=Line, column=12)
             NumCell.value = tempLine - 2
-            IDcell = Login_c.cell(row=Line, column=2)
+            IDcell = Login_c.cell(row=Line, column=13)
             IDcell.value = username
-            DateCell = Login_c.cell(row=Line, column=3)
+            DateCell = Login_c.cell(row=Line, column=14)
             DateCell.value = CurDate
-            LogCell = Login_c.cell(row=Line, column=4)
+            LogCell = Login_c.cell(row=Line, column=15)
             LogCell.value = 1
             login_count.save(filename="Player_db.xlsx")
             print("\nWelcome to the Player Menu\n")
@@ -717,15 +792,25 @@ def Login_And_SignIn():
                     if not flag:
                         if Users_db['Type'][line - 2] == 1:
                             k = 0
+                            o = 0
+                            for r in Login_c['ID']:
+                                print(r.value)
+                                if r.value == username:
+                                    check = o
+                                o += 1
+                            LINE = 0
                             for row in Login_c.rows:
-                                k = k + 1
                                 for cell in row:
                                     if cell.value == username:
                                         LINE = k
+                                k = k + 1
+                            print("k is: ",k)
+                            print("check is: ",check)
+                            print("line is: ",LINE)
                             CurDate = time.asctime(time.localtime(time.time()))
-                            DateCell = Login_c.cell(row=LINE, column=3)
+                            DateCell = Login_c.cell(row=check, column=14)
                             DateCell.value = CurDate
-                            LogCell = Login_c.cell(row=LINE, column=4)
+                            LogCell = Login_c.cell(row=check, column=15)
                             LogCell.value = LogCell.value + 1
                             login_count.save(filename="Player_db.xlsx")
                             print("\nWelcome to the Player Menu\n")
@@ -740,6 +825,6 @@ def Login_And_SignIn():
                 break
             print("ID not exist in the system")
 
-# Login_And_SignIn()
-#Player_Menu(123456789)
-#Parent_Menu(111111111)  
+Login_And_SignUp()
+# Player_Menu(123456789)
+# Parent_Menu(111111111)
