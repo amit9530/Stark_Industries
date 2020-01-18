@@ -727,10 +727,10 @@ def Login_And_SignUp():
                 if username == Id:
                     flag = True
             if not flag:
-                IdCell = sheet.cell(row=count + 1, column=7)
+                IdCell = sheet.cell(row=count + 1, column=2)
                 IdCell.value = username
                 password = int(input("Enter a password: "))
-                PasswordCell = sheet.cell(row=count + 1, column=8)
+                PasswordCell = sheet.cell(row=count + 1, column=3)
                 PasswordCell.value = password
                 print("Type 1 for Player")
                 print("Type 2 for Parent")
@@ -738,12 +738,16 @@ def Login_And_SignUp():
                 usertype = int(input("Enter the user type: "))
                 while usertype != 1 and usertype != 2 and usertype != 3:
                     usertype = int(input("Wrong input, try again: "))
-                TypeCell = sheet.cell(row=count + 1, column=9)
+                TypeCell = sheet.cell(row=count + 1, column=4)
                 TypeCell.value = usertype
                 break
             print("ID already exist")
         write.save(filename="Users_db.xlsx")
         if usertype == 1:
+            d={'Date':[],'Grade':[]}
+            df=pd.DataFrame(data=d)
+            user_db='{0}.xlsx'.format(username)
+            df.to_excel(user_db)
             i = 0
             for row in Login_c.rows:
                 i = i + 1
@@ -751,13 +755,13 @@ def Login_And_SignUp():
             Line = Line + 1
             tempLine = Line
             CurDate = time.asctime(time.localtime(time.time()))
-            NumCell = Login_c.cell(row=Line, column=12)
+            NumCell = Login_c.cell(row=Line, column=1)
             NumCell.value = tempLine - 2
-            IDcell = Login_c.cell(row=Line, column=13)
+            IDcell = Login_c.cell(row=Line, column=2)
             IDcell.value = username
-            DateCell = Login_c.cell(row=Line, column=14)
+            DateCell = Login_c.cell(row=Line, column=3)
             DateCell.value = CurDate
-            LogCell = Login_c.cell(row=Line, column=15)
+            LogCell = Login_c.cell(row=Line, column=4)
             LogCell.value = 1
             login_count.save(filename="Player_db.xlsx")
             print("\nWelcome to the Player Menu\n")
