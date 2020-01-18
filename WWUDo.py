@@ -455,7 +455,7 @@ def Game(category, id):
 
         # Print an answer to an answered question
         if check_if_answer.value != 'NaN':
-            print("\nYou hve answer to this question: ", check_if_answer.value)
+            print("\nYou have answer to this question: ", check_if_answer.value)
 
         # Print the options for each question
         ans = str(input("\nPress 1 to choose answer number 1 \nPress 2 to choose answer number 2 \nPress 3 to choose "
@@ -494,17 +494,14 @@ def Game(category, id):
             see = str(input("\nto see the grade press 1 \nto exit the game back to the menu press 2\n"))
             while see != '1' and see != '2':
                 see = str(input("Wrong input, try again: "))
+            Grade_Cell = sheet.cell(row=Id_Index + 2, column=Id_In + 11)
+            Grade_Cell.value = Score
+            Q_and_A_write.save(filename="Player_db.xlsx")
             if see == '1':
-                Grade_Cell = sheet.cell(row=Id_Index + 2, column=Id_In + 11)
-                Grade_Cell.value = Score
-                Q_and_A_write.save(filename="Player_db.xlsx")
                 print("Your score is: ", Grade_Cell.value)
                 break
             elif see == '2':
                 break
-
-
-Game(4, 311369318)
 
 
 def Choose_Category(id):
@@ -855,4 +852,4 @@ def Login_And_SignUp():
             print("ID not exist in the system")
 
 
-# Login_And_SignUp()
+Login_And_SignUp()
