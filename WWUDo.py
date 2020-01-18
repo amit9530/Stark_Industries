@@ -311,12 +311,13 @@ def Calculate_Grade(id):
                             # Correct answer
                             score += 20
                     Qindex += 1
+
             gradeFile = pd.read_excel('{0}.xlsx'.format(id))
             NewGrade = gradeFile.append(
                 {'Grade': score, 'Date': time.asctime(time.localtime(time.time()))}, ignore_index=True)
             NewGrade.to_excel("{0}.xlsx".format(id))
         i += 1
-    return
+    return score
 
 
 def Game(category, id):
@@ -489,16 +490,21 @@ def Game(category, id):
         if ans == '6':
             Q_Num -= 1
         if ans == '7':
-            Calculate_Grade(id)
+            Score = Calculate_Grade(id)
             see = str(input("\nto see the grade press 1 \nto exit the game back to the menu press 2\n"))
             while see != '1' and see != '2':
                 see = str(input("Wrong input, try again: "))
             if see == '1':
                 Grade_Cell = sheet.cell(row=Id_Index + 2, column=Id_In + 11)
-                print(Grade_Cell.value)
+                Grade_Cell.value = Score
+                Q_and_A_write.save(filename="Player_db.xlsx")
+                print("Your score is: ", Grade_Cell.value)
                 break
             elif see == '2':
                 break
+
+
+Game(4, 311369318)
 
 
 def Choose_Category(id):
@@ -849,4 +855,4 @@ def Login_And_SignUp():
             print("ID not exist in the system")
 
 
-Login_And_SignUp()
+# Login_And_SignUp()
