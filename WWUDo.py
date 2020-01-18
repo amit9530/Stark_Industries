@@ -34,7 +34,6 @@ def View_Skip(kid_id):  # print the question from last game if skip from "User_d
     else:
         return 1
 
-
 # --------------------------------------------------
 
 def Add_Kid(parent_id):  # Get kid and parent id and write the parent id in "Parent" in "Player_db"
@@ -45,22 +44,19 @@ def Add_Kid(parent_id):  # Get kid and parent id and write the parent id in "Par
     Player_db.to_excel(writer)
     writer.save()
     # Unit_Test
-    parent = Player_db.loc[Player_db.Parent == parent_id]
-    if parent_id == int(parent['Parent']):
+    if kid_id  in (Player_db['ID']):
         return 0
     else:
         return 1
-
 
 # --------------------------------------------------
 
 def View_Kid(parent_id):  # Get parent id and print all the kids that belong to the parent id from "Player_db"
     Player_db = pd.read_excel('Player_db.xlsx')
     kids = Player_db.loc[Player_db.Parent == parent_id]
-    print(int(kids['ID']))
+    print(kids['ID'])
     # Unit_Test
-    parent = Player_db.loc[Player_db.Parent == parent_id]
-    if parent_id == int(parent['Parent']):
+    if parent_id in (Player_db['Parent']):
         return 0
     else:
         return 1
@@ -77,7 +73,6 @@ def Print_Login_Count():  # Get kid id and print login count from "Player_db"
         return 0
     else:
         return 1
-
 
 # --------------------------------------------------
 

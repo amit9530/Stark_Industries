@@ -16,7 +16,7 @@ class Unit_Test(unittest.TestCase):
         kid_id=123456789
         self.assertEqual(View_Skip(kid_id), 0)
     def test_Add_Kid(self):
-        parent_id = 123456789
+        parent_id = 111111111
         self.assertEqual(Add_Kid(parent_id), 0)
     def test_View_Kid(self):
         kid_id = 123456789
